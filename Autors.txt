@@ -1,2 +1,0 @@
-autors:
-	Dmitry Svetlov
