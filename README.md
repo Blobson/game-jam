@@ -1,6 +1,7 @@
 # game-jam
 
-Authors
+## Authors
 - Dmitry Antonov
 - Vasiliy Elistratov
 - Dmitry Svetlov
+- Pavel Shlyakov
