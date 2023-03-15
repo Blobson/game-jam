@@ -3,3 +3,4 @@
 Authors
 - Dmitry Antonov
 - Vasiliy Elistratov
+- Dmitry Svetlov
