@@ -2,3 +2,4 @@
 
 Authors
 - Dmitry Antonov
+- Vasiliy Elistratov
