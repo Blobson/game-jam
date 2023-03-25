@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://lngyth13sjtj"]
+
+[ext_resource type="Script" path="res://TowerBuildLocation/tower_build_location.gd" id="1_k0es5"]
+[ext_resource type="Texture2D" uid="uid://j4tcemr83o4m" path="res://TowerBuildLocation/location.png" id="2_6svsn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmgk5"]
+radius = 258.82
+
+[node name="TowerBuildLocation" type="Node2D"]
+script = ExtResource("1_k0es5")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("2_6svsn")
+shape = SubResource("CircleShape2D_tmgk5")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
