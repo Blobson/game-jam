@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://d00ma2ctbn1h8"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_jjmtc"]
+[ext_resource type="PackedScene" uid="uid://cy5n8dgn7r4m6" path="res://settings.tscn" id="2_f352e"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_jjmtc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -158.5
+offset_right = 245.0
+offset_bottom = 158.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Continue" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+text = "New game"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("2_f352e")]
+
+[connection signal="pressed" from="CanvasLayer/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/SettingsElements/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+
+[editable path="CanvasLayer/Settings"]
