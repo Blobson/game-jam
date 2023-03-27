@@ -1,0 +1,34 @@
+extends Container
+
+#Создает узел радиального контейнера
+var button_radius = 50 #радиус кнопок
+
+func _ready():
+	place_buttons()
+
+#Распологает кнопки
+func place_buttons():
+	var buttons = get_children()
+
+	# Останавливает функцию, когда нет доступных кнопок
+	if buttons.size() == 0:
+		return
+
+	#Величина изменения угла для каждой кнопки
+	var angle_offset = (2*PI)/buttons.size() #в градусах
+
+	var angle = 0 #в радианах
+	for btn in buttons: 
+		#рассчет позиции x и y для кнопок под заданным углом
+		var x = cos(angle)*button_radius
+		var y = sin(angle)*button_radius
+
+		
+		#>мы хотим центрировать элемент по кругу.
+		#>для этого нам нужно сместить рассчитанные x и y соответственно на половину высоты и ширины
+		var corner_pos = Vector2(x, -y)-(btn.get_size()/2) #Координаты экрана, рассчитанные таким образом, должны быть инвертированы.
+		btn.set_position(corner_pos)
+
+		#Переход к следующему положению
+		angle += angle_offset
+
