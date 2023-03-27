@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctlr7be0tg117"]
+
+[ext_resource type="PackedScene" path="res://towers/BaseTower/base_tower.tscn" id="1_k1bjb"]
+[ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://towers/TestTower/13.png" id="2_ks7bx"]
+
+[node name="TestTower" instance=ExtResource("1_k1bjb")]
+script = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-3.00003, -0.999954)
+scale = Vector2(0.248261, 0.2625)
+texture = ExtResource("2_ks7bx")

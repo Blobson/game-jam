@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://lbv5s485fr7j"]
+
+[ext_resource type="Texture2D" uid="uid://dntiyvw3dkd0t" path="res://ui/TowerBuildlMenu/golden_circle.png" id="1_1wydq"]
+[ext_resource type="Script" path="res://ui/TowerBuildlMenu/tower_build_menu.gd" id="1_o84e2"]
+[ext_resource type="Script" path="res://ui/TowerBuildlMenu/radial_container.gd" id="2_s8l34"]
+[ext_resource type="Texture2D" uid="uid://dhyfbhsxnmom6" path="res://ui/TowerBuildlMenu/btn.png" id="3_dg4pe"]
+[ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://towers/TestTower/13.png" id="5_ql28x"]
+
+[node name="TowerBuildMenu" type="Node2D"]
+z_index = 1
+script = ExtResource("1_o84e2")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Pngtree-textured-golden-geometric-abstract-light-effect-style-png-image6650813" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1wydq")
+
+[node name="RadialContainer" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s8l34")
+metadata/_edit_use_anchors_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="RadialContainer"]
+position = Vector2(55, -29)
+texture_normal = ExtResource("3_dg4pe")
+action = "tower_1"
+
+[node name="Sprite2D" type="Sprite2D" parent="RadialContainer/TouchScreenButton"]
+position = Vector2(31, 26)
+scale = Vector2(0.0737135, 0.0803571)
+texture = ExtResource("5_ql28x")
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="RadialContainer"]
+position = Vector2(33, 34)
+texture_normal = ExtResource("3_dg4pe")
+action = "tower_2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton2"]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 54.0
+text = "2"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="RadialContainer"]
+position = Vector2(-40, 54)
+texture_normal = ExtResource("3_dg4pe")
+action = "tower_3"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton3"]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 54.0
+text = "3"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="RadialContainer"]
+position = Vector2(-111, 9)
+texture_normal = ExtResource("3_dg4pe")
+action = "tower_4"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton4"]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 54.0
+text = "4"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="RadialContainer"]
+position = Vector2(-108, -72)
+texture_normal = ExtResource("3_dg4pe")
+action = "tower_5"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton5"]
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 54.0
+text = "5"
