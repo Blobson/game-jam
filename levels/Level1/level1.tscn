@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://doneg4kqldq6m"]
+[gd_scene load_steps=6 format=3 uid="uid://doneg4kqldq6m"]
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
+[ext_resource type="PackedScene" uid="uid://bqm1c74ibw37w" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
 
 [sub_resource type="Curve2D" id="Curve2D_ore8v"]
 _data = {
@@ -26,3 +27,6 @@ script = ExtResource("2_cmdcf")
 [node name="EnemyPath2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_h2wft")
 script = ExtResource("2_cmdcf")
+
+[node name="TowerBuildLocation" parent="." instance=ExtResource("3_72q32")]
+position = Vector2(635, 269)
