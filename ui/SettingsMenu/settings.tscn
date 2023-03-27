@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy5n8dgn7r4m6"]
+[gd_scene load_steps=2 format=3 uid="uid://d0dckf7v3wwxj"]
 
-[ext_resource type="Script" path="res://settings.gd" id="1_0ja4t"]
+[ext_resource type="Script" path="res://ui/SettingsMenu/settings.gd" id="1_nwlyx"]
 
 [node name="Settings" type="Node2D"]
-script = ExtResource("1_0ja4t")
+script = ExtResource("1_nwlyx")
 
 [node name="SettingsElements" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -44,9 +44,10 @@ min_value = -24.0
 max_value = 0.0
 value = -4.0
 
-[node name="BackToMenu" type="Button" parent="SettingsElements"]
+[node name="BackToMenuButton" type="Button" parent="SettingsElements"]
 layout_mode = 2
 text = "Back to menu"
 
 [connection signal="value_changed" from="SettingsElements/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="SettingsElements/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="SettingsElements/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
