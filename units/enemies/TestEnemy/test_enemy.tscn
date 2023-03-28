@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciuy7brfhg4y4"]
+
+[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_5pa1j"]
+[ext_resource type="Script" path="res://units/enemies/TestEnemy/test_enemy.gd" id="2_hcgru"]
+[ext_resource type="Texture2D" uid="uid://cec0a8gu7jcm8" path="res://icon.svg" id="3_ux7xt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icsys"]
+size = Vector2(126.667, 126.667)
+
+[node name="TestEnemy" instance=ExtResource("1_5pa1j")]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_hcgru")
+move_speed = 200
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_ux7xt")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_icsys")

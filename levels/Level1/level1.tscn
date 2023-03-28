@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://doneg4kqldq6m"]
+
+[ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
+[ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
+
+[sub_resource type="Curve2D" id="Curve2D_ore8v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 165, 285, -106.787, -10.6787, 106.787, 10.6787, 334, 198, -232.262, 6.6742, 232.262, -6.6742, 801, 429, 0, 0, 0, 0, 1231, 190)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_h2wft"]
+_data = {
+"points": PackedVector2Array(-141.493, -74.751, 141.493, 74.751, 125, 62, -180.203, 10.6787, 180.203, -10.6787, 801, 245, -121.47, 1.33484, 121.47, -1.33484, 994, 79, -118.801, -28.0316, 118.801, 28.0316, 1258, 171)
+}
+point_count = 4
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_l8i4q")
+metadata/_edit_lock_ = true
+
+[node name="EnemyPath1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ore8v")
+script = ExtResource("2_cmdcf")
+
+[node name="EnemyPath2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_h2wft")
+script = ExtResource("2_cmdcf")
