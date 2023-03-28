@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 pointing/emulate_touch_from_mouse=true
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1024
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
