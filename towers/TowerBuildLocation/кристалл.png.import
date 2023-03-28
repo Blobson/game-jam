@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j4tcemr83o4m"
-path="res://.godot/imported/location.png-289166d2f7e75f6f6c3baeb182cde46c.ctex"
+uid="uid://bvkuwvrtwoed1"
+path="res://.godot/imported/кристалл.png-84d4ceeadc02ba8628541298abc06be2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elements/TowerBuildLocation/location.png"
-dest_files=["res://.godot/imported/location.png-289166d2f7e75f6f6c3baeb182cde46c.ctex"]
+source_file="res://towers/TowerBuildLocation/кристалл.png"
+dest_files=["res://.godot/imported/кристалл.png-84d4ceeadc02ba8628541298abc06be2.ctex"]
 
 [params]
 
