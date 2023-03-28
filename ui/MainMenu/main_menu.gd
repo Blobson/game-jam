@@ -1,6 +1,6 @@
 extends Node2D
 
-var gamesaved: bool = 0 #наличие сохранений в игре. Когда игрок создаст сохранение, должна поменяться в 1.
+var gamesaved: bool = false #наличие сохранений в игре. Когда игрок создаст сохранение, должна поменяться в 1.
 
 func _ready():
 	$CanvasLayer/Buttons/ContinueButton.grab_focus() #Подсвечена кнопка 'продолжить' при запуске
