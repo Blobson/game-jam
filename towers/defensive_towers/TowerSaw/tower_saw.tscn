@@ -1,0 +1,185 @@
+[gd_scene load_steps=34 format=3 uid="uid://d15a3alrpnp4v"]
+
+[ext_resource type="PackedScene" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
+[ext_resource type="Script" path="res://towers/defensive_towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
+[ext_resource type="Texture2D" uid="uid://dmm50hqfeamfg" path="res://towers/defensive_towers/TowerSaw/texture/idle.png" id="3_oxxpj"]
+[ext_resource type="Texture2D" uid="uid://cl4b3bklpdc6m" path="res://towers/defensive_towers/TowerSaw/texture/work/1.png" id="4_7f1h8"]
+[ext_resource type="Texture2D" uid="uid://bhs6qowlxv3y0" path="res://towers/defensive_towers/TowerSaw/texture/work/2.png" id="5_c268m"]
+[ext_resource type="Texture2D" uid="uid://b8jm5abwj1edx" path="res://towers/defensive_towers/TowerSaw/texture/work/3.png" id="6_4qae2"]
+[ext_resource type="Texture2D" uid="uid://b44a4tvb1tvxu" path="res://towers/defensive_towers/TowerSaw/texture/work/4.png" id="7_rm1fl"]
+[ext_resource type="Texture2D" uid="uid://bc3gigr5rs1el" path="res://towers/defensive_towers/TowerSaw/texture/work/5.png" id="8_wxyxk"]
+[ext_resource type="Texture2D" uid="uid://bk4cmtnlyqhxt" path="res://towers/defensive_towers/TowerSaw/texture/work/6.png" id="9_6tjdh"]
+[ext_resource type="Texture2D" uid="uid://2haa25d1jeoq" path="res://towers/defensive_towers/TowerSaw/texture/work/7.png" id="10_xahtj"]
+[ext_resource type="Texture2D" uid="uid://cw7k4etbeyunm" path="res://towers/defensive_towers/TowerSaw/texture/work/8.png" id="11_sf2bk"]
+[ext_resource type="Texture2D" uid="uid://bjmh3loic6a5q" path="res://towers/defensive_towers/TowerSaw/texture/work/9.png" id="12_wtcrg"]
+[ext_resource type="Texture2D" uid="uid://3h8isykoua5m" path="res://towers/defensive_towers/TowerSaw/texture/work/10.png" id="13_yc48s"]
+[ext_resource type="Texture2D" uid="uid://cyysxkmiivhh7" path="res://towers/defensive_towers/TowerSaw/texture/work/11.png" id="14_nfppe"]
+[ext_resource type="Texture2D" uid="uid://dtjiun4wfhxik" path="res://towers/defensive_towers/TowerSaw/texture/work/12.png" id="15_6vwsb"]
+[ext_resource type="Texture2D" uid="uid://dwbbqd0oeohg8" path="res://towers/defensive_towers/TowerSaw/texture/work/13.png" id="16_cnkme"]
+[ext_resource type="Texture2D" uid="uid://0pcx0qrc2efq" path="res://towers/defensive_towers/TowerSaw/texture/work/14.png" id="17_18411"]
+[ext_resource type="Texture2D" uid="uid://dpm1ds1s78xcw" path="res://towers/defensive_towers/TowerSaw/texture/work/15.png" id="18_xcbvx"]
+[ext_resource type="Texture2D" uid="uid://deqhilh4suwnp" path="res://towers/defensive_towers/TowerSaw/texture/work/16.png" id="19_51bdx"]
+[ext_resource type="Texture2D" uid="uid://d38xlatkfsscg" path="res://towers/defensive_towers/TowerSaw/texture/work/17.png" id="20_cvmpb"]
+[ext_resource type="Texture2D" uid="uid://csvflcbmmr6la" path="res://towers/defensive_towers/TowerSaw/texture/work/18.png" id="21_r5mle"]
+[ext_resource type="Texture2D" uid="uid://djo81p3606jri" path="res://towers/defensive_towers/TowerSaw/texture/work/19.png" id="22_6lgk1"]
+[ext_resource type="Texture2D" uid="uid://dmpuv0xvkejph" path="res://towers/defensive_towers/TowerSaw/texture/work/20.png" id="23_fkcdw"]
+[ext_resource type="Texture2D" uid="uid://dm38lsqox30yu" path="res://towers/defensive_towers/TowerSaw/texture/work/21.png" id="24_fd2fl"]
+[ext_resource type="Texture2D" uid="uid://bwd5i388eo1je" path="res://towers/defensive_towers/TowerSaw/texture/work/22.png" id="25_vjfow"]
+[ext_resource type="Texture2D" uid="uid://4jp4fybikgny" path="res://towers/defensive_towers/TowerSaw/texture/work/23.png" id="26_5lvv4"]
+[ext_resource type="Texture2D" uid="uid://dw8rrelta4vst" path="res://towers/defensive_towers/TowerSaw/texture/work/24.png" id="27_16831"]
+[ext_resource type="Texture2D" uid="uid://p86nkddb56n7" path="res://towers/defensive_towers/TowerSaw/texture/work/25.png" id="28_mv11g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvuf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oxxpj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7f1h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c268m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4qae2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rm1fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wxyxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6tjdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xahtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sf2bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wtcrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yc48s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nfppe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6vwsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cnkme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_18411")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xcbvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_51bdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cvmpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_r5mle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_6lgk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fkcdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_fd2fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vjfow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5lvv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_16831")
+}, {
+"duration": 4.0,
+"texture": ExtResource("28_mv11g")
+}],
+"loop": true,
+"name": &"Work",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emrh1"]
+radius = 100.0
+height = 238.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_760ey"]
+radius = 106.0
+height = 254.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ue04v"]
+radius = 320.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7h03e"]
+radius = 700.0
+
+[node name="TowerSaw" instance=ExtResource("1_nx3tx")]
+script = ExtResource("2_wgurc")
+health = 50
+damage_dealt = 5
+damage_taken = 2
+
+[node name="Tower" type="StaticBody2D" parent="." index="0"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
+position = Vector2(12, -5)
+sprite_frames = SubResource("SpriteFrames_fvuf2")
+animation = &"Work"
+autoplay = "Work"
+frame_progress = 0.355591
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
+position = Vector2(0, 36)
+shape = SubResource("CapsuleShape2D_emrh1")
+
+[node name="HitBox" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 36)
+shape = SubResource("CapsuleShape2D_760ey")
+debug_color = Color(1, 1, 0, 0.176471)
+
+[node name="DamageArea" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource("CircleShape2D_ue04v")
+debug_color = Color(1, 0, 0, 0.121569)
+
+[node name="ObservationArea" type="Area2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObservationArea" index="0"]
+shape = SubResource("CircleShape2D_7h03e")
+one_way_collision_margin = 0.0
+debug_color = Color(0, 1, 0.262745, 0.0352941)
+
+[node name="DamageTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="body_entered" from="ObservationArea" to="." method="_on_observation_area_body_entered"]
+[connection signal="body_exited" from="ObservationArea" to="." method="_on_observation_area_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damaged_timer_timeout"]
