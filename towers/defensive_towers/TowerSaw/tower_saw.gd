@@ -1,56 +1,49 @@
-extends "res://towers/BaseTower/base_tower.gd"
+extends BaseTower
 
-signal damage_saw(damage_dealt)
+class_name TowerSaw
 
-@export var health: int = 50
-@export var damage_dealt: int = 5
-@export var damage_taken: int = 2
-var enemy = null				  # НУЖНО ПРИВЯЗАТЬ ВРАГА
-var observed_enemies: int = 0    #счетчик наблюдаемых врагов
-var damaged_enimies: int = 0	#счетчик врагов в зоне пил
+@export var health: int = 50  #здоровье башни
+@export var attack_force: int = 5   #сила атаки башни
+
+var damaged_enemies = []     #враги в зоне пил
+
 
 func _ready():
 	$Tower/AnimatedSprite2D.animation = "Idle"
 
 
 func _process(delta):
-	enimies_counter()
+	if damaged_enemies.size() > 0:
+		attack()
 
 
 func _on_hit_box_body_entered(body): #получение урона башней (разрушение)
-	if body == enemy:
-		health -= damage_taken
+	pass
 
 
-func _on_observation_area_body_entered(body): #вход врага в поле зрения башни
-	if body == enemy:
-		$Tower/AnimatedSprite2D.animated = "Work"
-		observed_enemies += 1
+func _on_damage_area_area_entered(area):
+	if area.get_parent().has_method("take_damage"):
+		$Tower/AnimatedSprite2D.animation = "Work"
+		damaged_enemies.append(area.get_parent())
+		print_debug("Something entered in my area:" + area.get_parent().name)
+	
+
+func _on_damage_area_area_exited(area):
+	if area.get_parent().has_method("take_damage"):
+		damaged_enemies.erase(area.get_parent())
+		print_debug("Something exited from my area:" + area.get_parent().name)
+		if damaged_enemies.size() == 0:
+			$Tower/AnimatedSprite2D.animation = "Idle"
 
 
-func _on_observation_area_body_exited(body): #выход врага из поля зрения башни
-	if body == enemy:
-		observed_enemies -= 1
-		if observed_enemies == 0:
-			$Tower/AnimatedSprite2D.animated = "Idle"
+##Атака противника
+func attack():
+	$DamageTimer.start(3.0)
+	for enemy in damaged_enemies:
+		enemy.take_damage(attack_force)
 
-
-func _on_damage_area_body_entered(body): #вход врага в зону пил
-	if body == enemy:
-		damaged_enimies += 1 
-
-
-func _on_damage_area_body_exited(body): #выход врага из зоны пил
-	if body == enemy:
-		damaged_enimies -= 1
-
-func enimies_counter(): 
-	if damaged_enimies != 0:
-		$DamageTimer.start(3.0)
 
 
 func _on_damaged_timer_timeout():
-	emit_signal("damage_saw")
-	print_debug("Signa 'damage_saw' = '{count}' in emit".format({
-		"count": damage_dealt,
-	}))
+	attack()
+

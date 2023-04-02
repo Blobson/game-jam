@@ -3,6 +3,8 @@ class_name Enemy extends CharacterBody2D
 signal enemy_reached_target
 
 @export var move_speed: int = 100
+@export var health: int = 50
+@export var attack_force: int
 
 var _path: EnemyPath
 var _path_offset: float
@@ -38,7 +40,12 @@ func follow_path(delta: float) -> bool:
 ## Перемещение в целевую точку
 func _move_to(target_transform: Transform2D):
 	position = target_transform.origin
-	
+
+
+## Получение урона
+func take_damage(damage_count):
+	health -= damage_count
+
 
 func _process(delta: float):
 	if _path and follow_path(delta):
