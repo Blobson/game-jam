@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var test_enemy = preload("res://units/enemies/TestEnemy/test_enemy.tscn")
+@onready var mutant = preload("res://units/enemies/Mutant/mutant.tscn")
 
 func _ready():
-	$EnemyPath1.add_enemy(test_enemy.instantiate())
+	$EnemyPath1.add_enemy(mutant.instantiate())
+

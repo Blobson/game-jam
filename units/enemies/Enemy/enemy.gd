@@ -7,6 +7,8 @@ signal enemy_reached_target
 var _path: EnemyPath
 var _path_offset: float
 
+func _ready():
+	pass
 
 func set_path(path: EnemyPath):
 	_path = path
@@ -38,7 +40,6 @@ func follow_path(delta: float) -> bool:
 ## Перемещение в целевую точку
 func _move_to(target_transform: Transform2D):
 	position = target_transform.origin
-	
 
 func _process(delta: float):
 	if _path and follow_path(delta):
