@@ -1,11 +1,9 @@
-extends BaseTower
-
-class_name TowerSaw
+class_name TowerSaw extends BaseTower
 
 @export var health: int = 50  #здоровье башни
 @export var attack_power: int = 5   #сила атаки башни
 
-var damaged_enemies = []     #враги в зоне пил
+var enemies_in_damage_area = []     #враги в зоне пил
 
 
 func _ready():
@@ -13,37 +11,38 @@ func _ready():
 
 
 func _process(delta):
-	if damaged_enemies.size() > 0:
-		attack()
+	pass
 
 
 func _on_hit_box_body_entered(body): #получение урона башней (разрушение)
 	pass
 
 
-func _on_damage_area_area_entered(area):
-	if area.get_parent().has_method("take_damage"):
+func _on_damage_area_body_entered(body):
+	if body.is_in_group("enemies"):
 		$Tower/AnimatedSprite2D.animation = "Work"
-		damaged_enemies.append(area.get_parent())
-		print_debug("Something entered in my area:" + area.get_parent().name)
-	
+		enemies_in_damage_area.append(body)
+		print_debug("Something entered in my area:" + body.name)
+		if enemies_in_damage_area.size() > 0:  
+			attack()
 
-func _on_damage_area_area_exited(area):
-	if area.get_parent().has_method("take_damage"):
-		damaged_enemies.erase(area.get_parent())
-		print_debug("Something exited from my area:" + area.get_parent().name)
-		if damaged_enemies.size() == 0:
+
+func _on_damage_area_body_exited(body):
+	if body.is_in_group("enemies"):
+		enemies_in_damage_area.erase(body)
+		print_debug("Something exited from my area:" + body.name)
+		if enemies_in_damage_area.size() == 0:
 			$Tower/AnimatedSprite2D.animation = "Idle"
 
 
-##Атака противника
 func attack():
-	$DamageTimer.start(3.0)
-	for enemy in damaged_enemies:
+	$AttackTimer.start(3.0)
+	for enemy in enemies_in_damage_area:
 		enemy.take_damage(attack_power)
 
 
-
-func _on_damaged_timer_timeout():
+func _on_attack_timer_timeout():
 	attack()
+
+
 

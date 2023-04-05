@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw7k4etbeyunm"
-path="res://.godot/imported/8.png-8fc3cfc27617613806f9716afb015838.ctex"
+uid="uid://cvxrtytr20b2h"
+path="res://.godot/imported/tower_saw_animation.png-2e30e3f8b901dde0ebcb5119343a1bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/defensive_towers/TowerSaw/texture/work/8.png"
-dest_files=["res://.godot/imported/8.png-8fc3cfc27617613806f9716afb015838.ctex"]
+source_file="res://towers/defensive_towers/TowerSaw/texture/tower_saw_animation.png"
+dest_files=["res://.godot/imported/tower_saw_animation.png-2e30e3f8b901dde0ebcb5119343a1bf7.ctex"]
 
 [params]
 

@@ -4,10 +4,13 @@ signal enemy_reached_target
 
 @export var move_speed: int = 100
 @export var health: int = 50
-@export var attack_force: int
+@export var attack_power: int
 
 var _path: EnemyPath
 var _path_offset: float
+
+func _init():
+	add_to_group("enemies")
 
 
 func set_path(path: EnemyPath):
@@ -45,6 +48,8 @@ func _move_to(target_transform: Transform2D):
 ## Получение урона
 func take_damage(damage_count):
 	health -= damage_count
+	if health <= 0:
+		queue_free() ##Смерть от получения урона
 
 
 func _process(delta: float):
