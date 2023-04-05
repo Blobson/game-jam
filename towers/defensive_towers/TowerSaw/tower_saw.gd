@@ -3,7 +3,7 @@ extends BaseTower
 class_name TowerSaw
 
 @export var health: int = 50  #здоровье башни
-@export var attack_force: int = 5   #сила атаки башни
+@export var attack_power: int = 5   #сила атаки башни
 
 var damaged_enemies = []     #враги в зоне пил
 
@@ -40,7 +40,7 @@ func _on_damage_area_area_exited(area):
 func attack():
 	$DamageTimer.start(3.0)
 	for enemy in damaged_enemies:
-		enemy.take_damage(attack_force)
+		enemy.take_damage(attack_power)
 
 
 

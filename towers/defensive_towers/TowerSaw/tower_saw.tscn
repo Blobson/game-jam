@@ -228,7 +228,7 @@ radius = 320.0
 [node name="TowerSaw" instance=ExtResource("1_nx3tx")]
 script = ExtResource("2_wgurc")
 health = 50
-attack_force = 5
+attack_power = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
 position = Vector2(-3, 28)
@@ -236,17 +236,23 @@ scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_fvuf2")
 animation = &"Work"
 autoplay = "Work"
-frame = 6
-frame_progress = 0.895268
+frame = 4
+frame_progress = 0.988972
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
 position = Vector2(0, 36)
 shape = SubResource("CapsuleShape2D_emrh1")
 
+[node name="HitBox" parent="." index="1"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 36)
 shape = SubResource("CapsuleShape2D_760ey")
 debug_color = Color(1, 1, 0, 0.176471)
+
+[node name="DamageArea" parent="." index="2"]
+visible = false
 
 [node name="DamageArea@CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
 shape = SubResource("CircleShape2D_ue04v")
