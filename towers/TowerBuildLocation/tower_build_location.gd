@@ -1,4 +1,4 @@
-extends Node2D
+class_name TowerBuildLocation extends Node2D
 
 signal TowerBuildLocationClick
 

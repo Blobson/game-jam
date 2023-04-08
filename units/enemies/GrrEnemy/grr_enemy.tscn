@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdsafvxq82s8r"]
+
+[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_lhi1f"]
+[ext_resource type="Script" path="res://units/enemies/GrrEnemy/grr_enemy.gd" id="2_56qua"]
+[ext_resource type="Texture2D" uid="uid://bvkuwvrtwoed1" path="res://towers/TowerBuildLocation/кристалл.png" id="2_nh76l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnfob"]
+size = Vector2(50, 19)
+
+[node name="GrrEnemy" instance=ExtResource("1_lhi1f")]
+script = ExtResource("2_56qua")
+move_speed = 80.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -9)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_nh76l")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_bnfob")

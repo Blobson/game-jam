@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://cec0a8gu7jcm8" path="res://icon.svg" id="3_ux7xt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icsys"]
-size = Vector2(126.667, 126.667)
+size = Vector2(38, 38)
 
 [node name="TestEnemy" instance=ExtResource("1_5pa1j")]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("2_hcgru")
-move_speed = 200
 
 [node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ux7xt")
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
 shape = SubResource("RectangleShape2D_icsys")
