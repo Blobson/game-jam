@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
 [ext_resource type="PackedScene" uid="uid://d15a3alrpnp4v" path="res://towers/defensive_towers/TowerSaw/tower_saw.tscn" id="3_8ve42"]
+[ext_resource type="PackedScene" uid="uid://bqm1c74ibw37w" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
 
 [sub_resource type="Curve2D" id="Curve2D_ore8v"]
 _data = {
@@ -31,3 +32,6 @@ script = ExtResource("2_cmdcf")
 [node name="TowerSaw" parent="." instance=ExtResource("3_8ve42")]
 position = Vector2(771, 343)
 scale = Vector2(0.5, 0.5)
+
+[node name="TowerBuildLocation" parent="." instance=ExtResource("3_72q32")]
+position = Vector2(635, 269)

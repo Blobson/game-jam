@@ -12,6 +12,8 @@ var _path_offset: float
 func _init():
 	add_to_group("enemies")
 
+func _ready():
+	pass
 
 func set_path(path: EnemyPath):
 	_path = path
