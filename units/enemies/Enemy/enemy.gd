@@ -31,7 +31,6 @@ func _move(delta: float):
 
 ## Получение урона
 func take_damage(damage_count):
-	print(health)
 	health -= damage_count
 	$HP_bar.set("value", (health/max_health)*$HP_bar.max_value)
 	if health <= 0:
