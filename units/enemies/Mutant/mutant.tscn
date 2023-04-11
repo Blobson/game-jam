@@ -49,9 +49,3 @@ shape = SubResource("CapsuleShape2D_aw4yd")
 libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
-
-[node name="HealthBar" parent="." index="3"]
-offset_left = -13.0
-offset_top = -40.0
-offset_right = 12.0
-offset_bottom = -36.0
