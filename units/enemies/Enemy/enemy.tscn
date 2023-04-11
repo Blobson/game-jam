@@ -8,3 +8,7 @@ script = ExtResource("1_4kk6h")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HP_bar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

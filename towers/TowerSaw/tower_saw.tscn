@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=35 format=3 uid="uid://ccm1qveururyj"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
@@ -232,7 +232,7 @@ radius = 320.0
 [node name="TowerSaw" instance=ExtResource("1_nx3tx")]
 script = ExtResource("2_wgurc")
 health = 50
-attack_power = 5
+attack_power = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
 position = Vector2(-3, 28)

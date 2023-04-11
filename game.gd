@@ -6,7 +6,7 @@ var current_build_location
 @onready var current_level = $Level1
 
 var towers = {
-	"tower_1": "res://towers/TestTower/test_tower.tscn"
+	"tower_1": "res://towers/TowerSaw/tower_saw.tscn"
 }
 
 

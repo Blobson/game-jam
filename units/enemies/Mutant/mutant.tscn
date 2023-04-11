@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://sl7dr7laguqt"]
+[gd_scene load_steps=8 format=3 uid="uid://sl7dr7laguqt"]
 
 [ext_resource type="Script" path="res://units/enemies/Mutant/mutant.gd" id="1_6711r"]
 [ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_vgxne"]
 [ext_resource type="Texture2D" uid="uid://febyysy6d0bw" path="res://units/enemies/Mutant/mutant.png" id="2_sxr1k"]
+[ext_resource type="Texture2D" uid="uid://d3n3m1kxytk2r" path="res://units/enemies/Enemy/hp.png" id="4_h40nx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aw4yd"]
 
 [sub_resource type="Animation" id="Animation_1gxqi"]
 resource_name = "walk"
@@ -26,7 +29,7 @@ _data = {
 "walk": SubResource("Animation_1gxqi")
 }
 
-[node name="Mutant" instance=ExtResource("1_vgxne")]
+[node name="Mutant" groups=["enemies"] instance=ExtResource("1_vgxne")]
 script = ExtResource("1_6711r")
 
 [node name="Sprite2D" parent="." index="0"]
@@ -35,7 +38,19 @@ texture = ExtResource("2_sxr1k")
 hframes = 6
 frame = 1
 
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_aw4yd")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
+
+[node name="HP_bar" parent="." index="3"]
+offset_left = -16.0
+offset_top = -23.0
+offset_right = 12.0
+offset_bottom = -19.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("4_h40nx")
