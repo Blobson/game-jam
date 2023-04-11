@@ -1,4 +1,4 @@
-class_name EnemyPath extends Path2D
+class_name EnemyPath extends EnemyPathEditor
 
 ## Вражеские "рельсы"
 ##
@@ -17,7 +17,6 @@ func end_position() -> Vector2:
 	return curve.get_baked_points()[-1]
 
 
-## Метод для запуска нового врага по "рельсу".
-func add_enemy(enemy: Node):
-	enemy.set_path(self)
-	add_child(enemy)
+## Создаём объект следования по "рельсу"
+func create_follower() -> EnemyPathFollower:
+	return EnemyPathFollower.new(self)

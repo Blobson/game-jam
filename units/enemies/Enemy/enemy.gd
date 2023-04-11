@@ -1,50 +1,31 @@
 class_name Enemy extends CharacterBody2D
 
-signal enemy_reached_target
-
-@export var move_speed: int = 100
+@export var move_speed: float = 50
 @export var health: int = 50
-@export var attack_power: int
-
-var _path: EnemyPath
-var _path_offset: float
+@export var attack_power: int = 10
+var path_follower: EnemyPathFollower
 
 func _init():
 	add_to_group("enemies")
 
+
 func _ready():
 	pass
 
-func set_path(path: EnemyPath):
-	_path = path
-	position = _path.start_position()
-	print_debug("Spawning '{name}' at path '{path}' in coords {pos}".format({
-		"name": name, 
-		"path": _path.name,
-		"pos": position,
-	}))
-
 	
-## Метод следования по заданному пути.
-## Если достигнут конец пути, возвращает true
-func follow_path(delta: float) -> bool:
-	if _path_offset == null:
-		_path_offset = _path.curve.get_closest_offset(position)
-	_path_offset += move_speed * delta
-	
-	# ищем целевую точку на рельсе
-	var target_transform = _path.curve.sample_baked_with_rotation(_path_offset)
-	
-	# постепенно двигаемся к цели
-	_move_to(target_transform)
-	
-	# проверяем достигнут ли конец пути
-	return transform.origin.is_equal_approx(_path.end_position())
+## Установить новый EnemyPathFollower
+func set_path_follower(path_follower: EnemyPathFollower):
+	self.path_follower = path_follower
+	position = path_follower.get_position()
+	$Sprite2D.set("flip_h", path_follower.get_direction().x < 0)
 
 
-## Перемещение в целевую точку
-func _move_to(target_transform: Transform2D):
-	position = target_transform.origin
+## Перемещение
+func _move(delta: float):
+	path_follower.follow_path(position, move_speed, delta)
+	var dir = path_follower.get_direction()
+	position += dir * move_speed * delta
+	$Sprite2D.set("flip_h", dir.x < 0)
 
 
 ## Получение урона
@@ -55,6 +36,9 @@ func take_damage(damage_count):
 
 
 func _process(delta: float):
-	if _path and follow_path(delta):
-		enemy_reached_target.emit()
-		queue_free()
+	if path_follower:
+		if path_follower.is_end_reached():
+			path_follower = null
+			queue_free()
+		else:
+			_move(delta)

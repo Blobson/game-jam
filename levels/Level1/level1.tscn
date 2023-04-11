@@ -1,37 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://doneg4kqldq6m"]
+[gd_scene load_steps=9 format=3 uid="uid://doneg4kqldq6m"]
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
-[ext_resource type="PackedScene" uid="uid://d15a3alrpnp4v" path="res://towers/defensive_towers/TowerSaw/tower_saw.tscn" id="3_8ve42"]
-[ext_resource type="PackedScene" uid="uid://bqm1c74ibw37w" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
-
-[sub_resource type="Curve2D" id="Curve2D_ore8v"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 165, 285, -106.787, -10.6787, 106.787, 10.6787, 334, 198, -232.262, 6.6742, 232.262, -6.6742, 801, 429, 0, 0, 0, 0, 1231, 190)
-}
-point_count = 4
+[ext_resource type="PackedScene" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
+[ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="3_cupwo"]
+[ext_resource type="PackedScene" uid="uid://bdsafvxq82s8r" path="res://units/enemies/GrrEnemy/grr_enemy.tscn" id="4_afbm1"]
+[ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2wft"]
 _data = {
-"points": PackedVector2Array(-141.493, -74.751, 141.493, 74.751, 125, 62, -180.203, 10.6787, 180.203, -10.6787, 801, 245, -121.47, 1.33484, 121.47, -1.33484, 994, 79, -118.801, -28.0316, 118.801, 28.0316, 1258, 171)
+"points": PackedVector2Array(-361.975, 18.8641, 361.975, -18.8641, -16, 154, -41.1969, -91.9677, 41.1969, 91.9677, 332, 578, -128.231, 160.783, 128.231, -160.783, 648, 604, -260.26, 8.17413, 260.26, -8.17413, 1088, 296, -282.386, -4.1566, 282.386, 4.1566, 1940, 374)
 }
-point_count = 4
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ore8v"]
+_data = {
+"points": PackedVector2Array(0.734711, 214.499, -0.734711, -214.499, 324, 1312, -195.641, 26.0233, 195.641, -26.0233, 625, 1060, -113.774, 204.137, 113.774, -204.137, 1124, 980, -38.533, 230.134, 38.533, -230.134, 1717, 836, -12.271, 222.359, 12.271, -222.359, 1315, 491, -258.121, -1.77296, 258.121, 1.77296, 1948, 372)
+}
+point_count = 6
 
 [node name="Level1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_l8i4q")
 metadata/_edit_lock_ = true
 
-[node name="EnemyPath1" type="Path2D" parent="."]
-curve = SubResource("Curve2D_ore8v")
-script = ExtResource("2_cmdcf")
-
-[node name="EnemyPath2" type="Path2D" parent="."]
+[node name="TopWay" type="Path2D" parent="."]
 curve = SubResource("Curve2D_h2wft")
 script = ExtResource("2_cmdcf")
 
-[node name="TowerSaw" parent="." instance=ExtResource("3_8ve42")]
-position = Vector2(771, 343)
-scale = Vector2(0.5, 0.5)
+[node name="MutantSpawn" type="Node2D" parent="TopWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("6_tsd4y")
+enemy_count = 2
+first_wave_time = 3.0
+
+[node name="CrystallSpawn" type="Node2D" parent="TopWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("4_afbm1")
+enemy_count = 3
+first_wave_time = 12.0
+
+[node name="BottomWay" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ore8v")
+script = ExtResource("2_cmdcf")
+
+[node name="MutantSpawn" type="Node2D" parent="BottomWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("6_tsd4y")
+enemy_count = 3
+first_wave_time = 4.0
+
+[node name="CrystallSpawn" type="Node2D" parent="BottomWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("4_afbm1")
+enemy_count = 2
+first_wave_time = 11.0
 
 [node name="TowerBuildLocation" parent="." instance=ExtResource("3_72q32")]
-position = Vector2(635, 269)
+position = Vector2(495, 505)
+
+[node name="TowerBuildLocation2" parent="." instance=ExtResource("3_72q32")]
+position = Vector2(1152, 408)
+
+[node name="TowerBuildLocation3" parent="." instance=ExtResource("3_72q32")]
+position = Vector2(1432, 752)

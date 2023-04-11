@@ -13,11 +13,11 @@ var towers = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
-	current_level.print_tree_pretty()
+#	current_level.print_tree_pretty()
 
 	# прописать обработку нажатий на TowerBuildLocation
 	for child in current_level.get_children():
-		if child.name == "TowerBuildLocation":
+		if child is TowerBuildLocation:
 			child.TowerBuildLocationClick.connect(_on_TowerBuildLocationClick)
 
 
@@ -44,6 +44,7 @@ func _on_BuildMenu_TowerSelected(tower):
 		add_child(twr)
 	else:
 		print("Tower '%s' not found".format(tower))
+
 
 # Обработка закрытия меню постройки башни без выбора башни
 func _on_BuildMenu_Close():

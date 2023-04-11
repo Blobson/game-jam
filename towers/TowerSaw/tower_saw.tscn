@@ -1,8 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://d15a3alrpnp4v"]
+[gd_scene load_steps=35 format=3]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
-[ext_resource type="Script" path="res://towers/defensive_towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
-[ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/defensive_towers/TowerSaw/texture/tower_saw_animation.png" id="3_iffgn"]
+[ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
+[ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/TowerSaw/texture/tower_saw_animation.png" id="3_iffgn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxa2s"]
 atlas = ExtResource("3_iffgn")

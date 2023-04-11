@@ -9,12 +9,11 @@ func _ready():
 
 
 func _on_hit_box_body_entered(body):
-	var damage: int
-	body.attack_force = damage
-	damage_taken(damage)
+	if body is Enemy:
+		take_damage((body as Enemy).attack_power)
 
 
-func damage_taken(damage):
+func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()
