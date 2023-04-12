@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
-[ext_resource type="PackedScene" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
+[ext_resource type="PackedScene" uid="uid://vbfyndsb26xu" path="res://towers/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
 [ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="3_cupwo"]
 [ext_resource type="PackedScene" uid="uid://bdsafvxq82s8r" path="res://units/enemies/GrrEnemy/grr_enemy.tscn" id="4_afbm1"]
 [ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
@@ -31,13 +31,13 @@ script = ExtResource("2_cmdcf")
 [node name="MutantSpawn" type="Node2D" parent="TopWay"]
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_tsd4y")
-enemy_count = 2
-first_wave_time = 3.0
+enemy_count = 3
+first_wave_time = 0.1
 
 [node name="CrystallSpawn" type="Node2D" parent="TopWay"]
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("4_afbm1")
-enemy_count = 3
+enemy_count = 0
 first_wave_time = 12.0
 
 [node name="BottomWay" type="Path2D" parent="."]
