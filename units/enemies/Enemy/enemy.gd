@@ -3,7 +3,6 @@ class_name Enemy extends CharacterBody2D
 @export var move_speed: float = 150
 @export var health: float = 50
 @export var attack_power: int = 10
-@export var max_health = health
 var path_follower: EnemyPathFollower
 
 func _init():
@@ -11,8 +10,7 @@ func _init():
 
 
 func _ready():
-	max_health=health
-
+	$Healthbar.set("max_value,value", health)
 	
 ## Установить новый EnemyPathFollower
 func set_path_follower(path_follower: EnemyPathFollower):
@@ -32,7 +30,7 @@ func _move(delta: float):
 ## Получение урона
 func take_damage(damage_count):
 	health -= damage_count
-	$HP_bar.set("value", (health/max_health)*$HP_bar.max_value)
+	$Healthbar.set("value", health*100/$Healthbar.max_value)
 	if health <= 0:
 		queue_free() ##Смерть от получения урона
 
