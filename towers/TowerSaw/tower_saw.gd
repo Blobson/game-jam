@@ -19,15 +19,15 @@ func _on_hit_box_body_entered(body): #получение урона башней
 
 
 func _on_damage_area_body_entered(body):
-	if enemies_in_damage_area.size() == 0:
-		if body.is_in_group("enemies"):
+	if body.is_in_group("enemies"):
+		if enemies_in_damage_area.size() == 0:
 			$Tower/AnimatedSprite2D.animation = "Work"
 			enemies_in_damage_area.append(body)
 			print_debug("Something entered in my area:" + body.name)
 			if enemies_in_damage_area.size() > 0:  
 				attack()
-	elif enemies_in_damage_area.size() > 0:
-		enemies_in_damage_area.append(body)
+		elif enemies_in_damage_area.size() > 0:
+			enemies_in_damage_area.append(body)
 
 
 func _on_damage_area_body_exited(body):
