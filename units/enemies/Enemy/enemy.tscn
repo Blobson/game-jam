@@ -10,7 +10,7 @@ script = ExtResource("1_4kk6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="Healthbar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -17.0
 offset_top = -12.0
 offset_right = 16.0

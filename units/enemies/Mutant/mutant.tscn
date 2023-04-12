@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://febyysy6d0bw" path="res://units/enemies/Mutant/mutant.png" id="2_sxr1k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aw4yd"]
+radius = 2.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_1gxqi"]
 resource_name = "walk"
@@ -30,14 +32,17 @@ _data = {
 
 [node name="Mutant" groups=["enemies"] instance=ExtResource("1_vgxne")]
 script = ExtResource("1_6711r")
+health = 40
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -13)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_sxr1k")
 hframes = 6
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_aw4yd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -45,8 +50,8 @@ libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
 
-[node name="Healthbar" parent="." index="3"]
-offset_left = -15.0
-offset_top = -22.0
-offset_right = 10.0
-offset_bottom = -19.0
+[node name="HealthBar" parent="." index="3"]
+offset_left = -13.0
+offset_top = -40.0
+offset_right = 12.0
+offset_bottom = -36.0
