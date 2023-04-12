@@ -11,7 +11,7 @@ class_name Enemy extends CharacterBody2D
 
 var path_follower: EnemyPathFollower
 
-@onready var hpProgress = $HealthBar/HpProgressBar
+@onready var hp_progress = $HealthBar/HpProgressBar
 @onready var sprite = $Sprite2D
 
 func _init():
@@ -27,9 +27,9 @@ func _print_info():
 func _ready():
 	# настройка HP-бара
 	$HealthBar.position = Vector2(0, health_bar_offset)
-	hpProgress.max_value = health
-	hpProgress.step = health / 5
-	hpProgress.value = health
+	hp_progress.max_value = health
+	hp_progress.step = health / 5
+	hp_progress.value = health
 	_print_info()
 	
 ## Установить новый EnemyPathFollower
@@ -49,7 +49,7 @@ func _move(delta: float):
 ## Получение урона
 func take_damage(damage_count):
 	health -= damage_count
-	hpProgress.value = health if health > 0  else 0
+	hp_progress.value = health if health > 0  else 0
 
 	# TODO: remove debug
 	print_debug("%s TAKE dmg=%s, health=%s" % [name, damage_count, health])
