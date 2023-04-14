@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://ccm1qveururyj"]
+[gd_scene load_steps=36 format=3 uid="uid://ccm1qveururyj"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
 [ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/TowerSaw/texture/tower_saw_animation.png" id="3_iffgn"]
+[ext_resource type="AudioStream" uid="uid://c7vsmg3ucjkhn" path="res://towers/TowerSaw/buzz-saw_2.ogg" id="4_copfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxa2s"]
 atlas = ExtResource("3_iffgn")
@@ -263,6 +264,10 @@ debug_color = Color(1, 0, 0, 0.121569)
 [node name="AttackTimer" type="Timer" parent="." index="3"]
 wait_time = 3.0
 one_shot = true
+
+[node name="TowerSawSFX" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("4_copfv")
+bus = &"SFX"
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
