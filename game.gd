@@ -6,13 +6,15 @@ var current_build_location
 @onready var current_level = $Level1
 
 var towers = {
-	"tower_1": "res://towers/TestTower/test_tower.tscn"
-}
+	"tower_1": "res://towers/TestTower/test_tower.tscn",
+	"tower_2": "res://towers/TowerSaw/tower_saw.tscn"
+	}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
+	$BackgroundMusic.play()
 #	current_level.print_tree_pretty()
 
 	# прописать обработку нажатий на TowerBuildLocation

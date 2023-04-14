@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=36 format=3 uid="uid://bjqe57hbae3i7"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
 [ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/TowerSaw/texture/tower_saw_animation.png" id="3_iffgn"]
+[ext_resource type="AudioStream" uid="uid://c7vsmg3ucjkhn" path="res://towers/TowerSaw/buzz-saw_2.ogg" id="4_bcvfb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxa2s"]
 atlas = ExtResource("3_iffgn")
@@ -235,34 +236,37 @@ health = 50
 attack_power = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
-position = Vector2(-3, 28)
+position = Vector2(-3, -60)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_fvuf2")
-animation = &"Idle"
+animation = &"Work"
 autoplay = "Work"
+frame_progress = 0.638562
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
-position = Vector2(0, 36)
+position = Vector2(-2, -52)
 shape = SubResource("CapsuleShape2D_emrh1")
 
-[node name="HitBox" parent="." index="1"]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 36)
+position = Vector2(-2, -50)
 shape = SubResource("CapsuleShape2D_760ey")
 debug_color = Color(1, 1, 0, 0.176471)
 
 [node name="DamageArea" parent="." index="2"]
-visible = false
+position = Vector2(-2, -55)
 
 [node name="DamageArea@CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+position = Vector2(1, -20)
 shape = SubResource("CircleShape2D_ue04v")
 debug_color = Color(1, 0, 0, 0.121569)
 
 [node name="AttackTimer" type="Timer" parent="." index="3"]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioSFX" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("4_bcvfb")
+bus = &"SFX"
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
