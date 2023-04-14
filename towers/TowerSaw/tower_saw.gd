@@ -1,7 +1,7 @@
 class_name TowerSaw extends BaseTower
 
 @export var health: int = 50  #здоровье башни
-@export var attack_power: int = 5   #сила атаки башни
+@export var attack_power: int = 15   #сила атаки башни
 
 var enemies_in_damage_area = []     #враги в зоне пил
 
@@ -24,7 +24,6 @@ func _on_damage_area_body_entered(body):
 		enemies_in_damage_area.append(body)
 		if enemies_in_damage_area.size() == 1:
 			$Tower/AnimatedSprite2D.animation = "Work"
-			$AudioSFX.play()
 			attack()
 
 
@@ -34,8 +33,6 @@ func _on_damage_area_body_exited(body):
 		print_debug("Something exited from my area:" + body.name)
 		if enemies_in_damage_area.size() == 0:
 			$Tower/AnimatedSprite2D.animation = "Idle"
-			$AudioSFX.stop()
-
 
 
 func attack():
