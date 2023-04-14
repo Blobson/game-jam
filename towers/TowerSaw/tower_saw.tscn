@@ -234,6 +234,7 @@ radius = 320.0
 script = ExtResource("2_wgurc")
 health = 50
 attack_power = 15
+debug_area_circle = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
 position = Vector2(-3, 28)
@@ -254,10 +255,8 @@ position = Vector2(0, 36)
 shape = SubResource("CapsuleShape2D_760ey")
 debug_color = Color(1, 1, 0, 0.176471)
 
-[node name="DamageArea" parent="." index="2"]
-visible = false
-
-[node name="DamageArea@CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+position = Vector2(0, 32)
 shape = SubResource("CircleShape2D_ue04v")
 debug_color = Color(1, 0, 0, 0.121569)
 
