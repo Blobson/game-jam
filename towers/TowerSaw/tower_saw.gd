@@ -24,6 +24,8 @@ func _on_damage_area_body_entered(body):
 		enemies_in_damage_area.append(body)
 		if enemies_in_damage_area.size() == 1:
 			$Tower/AnimatedSprite2D.animation = "Work"
+			$TowerSawSFX.pitch_scale = randf_range(0.9, 1.1)
+			$TowerSawSFX.play()
 			attack()
 
 
@@ -33,6 +35,7 @@ func _on_damage_area_body_exited(body):
 		print_debug("Something exited from my area:" + body.name)
 		if enemies_in_damage_area.size() == 0:
 			$Tower/AnimatedSprite2D.animation = "Idle"
+			$TowerSawSFX.stop()
 
 
 func attack():

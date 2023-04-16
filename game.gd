@@ -13,6 +13,7 @@ var towers = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
+	$BackgroundMusic.play()
 #	current_level.print_tree_pretty()
 
 	# прописать обработку нажатий на TowerBuildLocation
