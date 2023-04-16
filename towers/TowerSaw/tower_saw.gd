@@ -15,12 +15,9 @@ func _ready():
 
 #Damage_area_draw
 func _draw():
-	##var damage_area_position = $DamageArea/CollisionShape2D.get_global_transform_with_canvas()
-	##var center = damage_area_position.get_origin()
-	var radius: float = 318.0            #Радиус пишем сюда
-	var radius_border: float = radius + 2.0
-	draw_circle(Vector2(0, 32), radius_border, Color.ORANGE_RED)
-	draw_circle(Vector2(0, 32), radius, Color.YELLOW)
+	var shape = $DamageArea/CollisionShape2D.shape as CircleShape2D
+	draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
+	draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
 
 
 func _process(delta):
