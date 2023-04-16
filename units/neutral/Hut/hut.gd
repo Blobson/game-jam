@@ -9,6 +9,9 @@ class_name Hut extends Node2D
 var enemies_in_melee_attack_area = []
 
 
+func _init():
+	add_to_group("Hut")
+
 func _ready():
 	$AnimationPlayer.play("idle")
 

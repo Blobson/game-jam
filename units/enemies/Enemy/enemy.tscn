@@ -21,3 +21,14 @@ value = 60.0
 rounded = true
 texture_under = ExtResource("3_ijf76")
 texture_progress = ExtResource("3_x88b2")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+scale = Vector2(1, 0.7)
+
+[node name="AttackPivot" type="Node2D" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
