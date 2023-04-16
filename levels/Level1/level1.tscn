@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://qfonkc0ih3dt"]
+[gd_scene load_steps=13 format=3 uid="uid://qfonkc0ih3dt"]
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
 [ext_resource type="Texture2D" uid="uid://ggvm5y4nxuag" path="res://levels/Level1/level1_background.png" id="2_yxbi5"]
 [ext_resource type="PackedScene" uid="uid://cpffk52pgefad" path="res://utils/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
 [ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="3_cupwo"]
-[ext_resource type="PackedScene" uid="uid://bdsafvxq82s8r" path="res://units/enemies/GrrEnemy/grr_enemy.tscn" id="4_afbm1"]
-[ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
+[ext_resource type="PackedScene" path="res://units/enemies/GrrEnemy/grr_enemy.tscn" id="4_afbm1"]
+[ext_resource type="PackedScene" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
+[ext_resource type="PackedScene" uid="uid://bxtlpgasb2f4f" path="res://units/enemies/Archer/archer.tscn" id="7_jlmmf"]
 [ext_resource type="PackedScene" uid="uid://dxa15bibmxb0m" path="res://units/neutral/Hut/hut.tscn" id="8_61hxf"]
 [ext_resource type="Texture2D" uid="uid://80uoy8wlmd0e" path="res://levels/Level1/Trees.png" id="9_b1quy"]
 
@@ -46,6 +47,12 @@ first_wave_time = 3.0
 [node name="GrrSpawn" type="Node2D" parent="TopWay"]
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("4_afbm1")
+enemy_count = 2
+first_wave_time = 10.0
+
+[node name="ArcherSpawn" type="Node2D" parent="TopWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("7_jlmmf")
 enemy_count = 2
 first_wave_time = 10.0
 

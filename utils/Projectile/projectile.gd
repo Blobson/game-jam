@@ -9,6 +9,8 @@ class_name Projectile extends Path2D
 ## Скорость движения снаряда
 @export var move_speed: float = 200.0
 
+@export var damage_group: String = 'enemies'
+
 # Логика расчетов баллистической траектории
 var ballistics: Ballistics
 
@@ -54,7 +56,7 @@ func _destroy():
 
 ## Наносим дамаг всем в зоне поражения
 func apply_damage():
-	for enemy in get_tree().get_nodes_in_group("enemies"):
+	for enemy in get_tree().get_nodes_in_group(damage_group):
 		var d = enemy.global_position.distance_to($PathFollow2D/DamageArea.global_position)
 		if d <= damage_radius:
 			enemy.take_damage(attack_power)
