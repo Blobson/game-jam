@@ -1,4 +1,4 @@
-class_name EnemyPath extends EnemyPathEditor
+@tool class_name EnemyPath extends EnemyPathEditor
 
 ## Вражеские "рельсы"
 ##

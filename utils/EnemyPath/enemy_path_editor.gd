@@ -45,5 +45,5 @@ func _draw_path():
 
 
 func _draw():
-#	if Engine.is_editor_hint():
-	_draw_path()
+	if Engine.is_editor_hint():
+		_draw_path()

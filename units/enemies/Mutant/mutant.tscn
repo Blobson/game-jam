@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://febyysy6d0bw" path="res://units/enemies/Mutant/mutant.png" id="2_sxr1k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aw4yd"]
-radius = 2.0
-height = 14.0
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_1gxqi"]
 resource_name = "walk"
@@ -32,11 +31,12 @@ _data = {
 
 [node name="Mutant" groups=["enemies"] instance=ExtResource("1_vgxne")]
 script = ExtResource("1_6711r")
+move_speed = 80
 health = 40
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -13)
-scale = Vector2(0.3, 0.3)
+position = Vector2(3, -23)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_sxr1k")
 hframes = 6
 frame = 1
@@ -49,3 +49,11 @@ shape = SubResource("CapsuleShape2D_aw4yd")
 libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
+
+[node name="Label" parent="." index="3"]
+offset_top = 10.0
+offset_bottom = 44.0
+
+[node name="HpProgressBar" parent="." index="4"]
+offset_top = -84.0
+offset_bottom = -66.0
