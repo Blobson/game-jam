@@ -6,12 +6,10 @@ class_name Enemy extends CharacterBody2D
 @export var health: int = 50
 ## Сила атаки моба
 @export var attack_power: int = 10
-## Смещение полоски с ХП по y
-@export var health_bar_offset: int = -20
 
 var path_follower: EnemyPathFollower
 
-@onready var hp_progress = $HealthBar/HpProgressBar
+@onready var hp_progress = $HpProgressBar
 @onready var sprite = $Sprite2D
 
 func _init():
@@ -25,8 +23,6 @@ func _print_info():
 	""" % [name, health]
 
 func _ready():
-	# настройка HP-бара
-	$HealthBar.position = Vector2(0, health_bar_offset)
 	hp_progress.max_value = health
 	hp_progress.step = health / 5
 	hp_progress.value = health

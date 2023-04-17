@@ -4,18 +4,27 @@
 [ext_resource type="Script" path="res://units/enemies/GrrEnemy/grr_enemy.gd" id="2_56qua"]
 [ext_resource type="Texture2D" uid="uid://bvkuwvrtwoed1" path="res://towers/TowerBuildLocation/кристалл.png" id="2_nh76l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnfob"]
-size = Vector2(50, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dd4bk"]
+radius = 14.0
+height = 80.0
 
 [node name="GrrEnemy" instance=ExtResource("1_lhi1f")]
 script = ExtResource("2_56qua")
-move_speed = 80.0
+move_speed = 100
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -9)
-scale = Vector2(0.3, 0.3)
+position = Vector2(-3, -20)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_nh76l")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_bnfob")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dd4bk")
+
+[node name="Label" parent="." index="2"]
+offset_top = 20.0
+offset_bottom = 54.0
+
+[node name="HpProgressBar" parent="." index="3"]
+offset_top = -84.0
+offset_bottom = -66.0

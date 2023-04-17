@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://brg2nif745u8r"]
+[gd_scene load_steps=5 format=3 uid="uid://brg2nif745u8r"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
-[ext_resource type="PackedScene" uid="uid://doneg4kqldq6m" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
+[ext_resource type="PackedScene" uid="uid://cwe44bl2vkhku" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
+[ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
 [ext_resource type="AudioStream" uid="uid://dvrtue6n87uo2" path="res://audio/Dialog.wav" id="3_e2mlp"]
 
 [node name="Game" type="Node2D"]
@@ -9,6 +10,10 @@ script = ExtResource("1_ittro")
 
 [node name="Level1" parent="." instance=ExtResource("1_npqrb")]
 
+[node name="Camera" parent="." instance=ExtResource("3_5nf3m")]
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e2mlp")
 bus = &"Music"
+
+[node name="Camera" parent="." instance=ExtResource("3_5nf3m")]

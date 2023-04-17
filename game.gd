@@ -12,6 +12,8 @@ var towers = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#устанавливаем позицию камеры по центру картинки заднего плана
+	$Camera.set("position", current_level.get_node("Background").position)
 	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
 	$BackgroundMusic.play()
 #	current_level.print_tree_pretty()
