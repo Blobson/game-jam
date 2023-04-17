@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8107ml24jky"]
+[gd_scene load_steps=4 format=3 uid="uid://cf8107ml24jky"]
 
 [ext_resource type="Script" path="res://units/enemies/Enemy/enemy.gd" id="1_4kk6h"]
-[ext_resource type="Texture2D" uid="uid://d3n3m1kxytk2r" path="res://units/enemies/Enemy/hp.png" id="2_mscwk"]
+[ext_resource type="Texture2D" uid="uid://dhggvryyl75ta" path="res://units/enemies/Enemy/hp_bar.png" id="2_r4rfa"]
+[ext_resource type="Texture2D" uid="uid://b8yqyasbiaeyo" path="res://units/enemies/Enemy/hp_bar_back.png" id="3_ijf76"]
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_4kk6h")
@@ -10,12 +11,25 @@ script = ExtResource("1_4kk6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = -17.0
-offset_top = -12.0
-offset_right = 16.0
-offset_bottom = -5.0
-value = 100.0
-fill_mode = 6
-nine_patch_stretch = true
-texture_progress = ExtResource("2_mscwk")
+[node name="HealthBar" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="HpProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_left = -34.0
+offset_top = -50.0
+offset_right = 34.0
+offset_bottom = -32.0
+value = 60.0
+rounded = true
+texture_under = ExtResource("3_ijf76")
+texture_progress = ExtResource("2_r4rfa")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 22.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.792157, 0.760784, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "name
+health"
