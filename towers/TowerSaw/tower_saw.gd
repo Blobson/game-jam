@@ -2,22 +2,21 @@ class_name TowerSaw extends BaseTower
 
 @export var health: int = 50  #здоровье башни
 @export var attack_power: int = 15   #сила атаки башни
-@export var debug_area_circle: bool = true
+@export var debug_damage_area: bool = true
 
 var enemies_in_damage_area = []     #враги в зоне пил
 
 
 func _ready():
 	$Tower/AnimatedSprite2D.animation = "Idle"
-	if debug_area_circle:
-		_draw()
 
 
 #Damage_area_draw
 func _draw():
 	var shape = $DamageArea/CollisionShape2D.shape as CircleShape2D
-	draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
-	draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
+	if debug_damage_area:
+		draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
+		draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
 
 
 func _process(delta):
