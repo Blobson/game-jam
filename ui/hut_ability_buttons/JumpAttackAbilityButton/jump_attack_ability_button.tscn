@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj2ityktnd8tv"]
+
+[ext_resource type="Script" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.gd" id="1_hmw43"]
+[ext_resource type="Texture2D" uid="uid://bgqu6ihxir3qi" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/normal.png" id="1_uxs7s"]
+[ext_resource type="Texture2D" uid="uid://wv6csdcw7fcf" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/pressed.png" id="2_khfqp"]
+[ext_resource type="Texture2D" uid="uid://c8ltp0evqnr6f" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/disabled.png" id="3_m2fas"]
+
+[node name="JumpAttackAbilityBotton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hmw43")
+
+[node name="AttackButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_uxs7s")
+texture_pressed = ExtResource("2_khfqp")
+texture_disabled = ExtResource("3_m2fas")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]

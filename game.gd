@@ -3,7 +3,7 @@ extends Node2D
 var tower_build_menu
 var current_build_location
 
-@onready var current_level = $Level1
+@onready var current_level = get_node("/root/game/level").get_child(0)
 
 var towers = {
 	"tower_1": "res://towers/TowerSaw/tower_saw.tscn"
@@ -16,6 +16,7 @@ func _ready():
 	$Camera.set("position", current_level.get_node("Background").position)
 	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
 	$BackgroundMusic.play()
+	
 #	current_level.print_tree_pretty()
 
 	# прописать обработку нажатий на TowerBuildLocation
