@@ -1,7 +1,10 @@
 class_name Hut extends Node2D
 
 @export var health: int = 100
-@export var attack_force: int
+@export var attack_power: int
+@export var jump_attack_power: int = 50
+
+var enemies_in_melee_attack_area = []
 
 
 func _ready():
@@ -17,3 +20,27 @@ func take_damage(damage):
 	health -= damage
 	if health <= 0:
 		queue_free()
+
+
+func jump_attack():
+	for enemy in enemies_in_melee_attack_area:
+		enemy.take_damage(jump_attack_power)
+
+
+func hut_repair():
+	if health < 80:
+		health += 20
+	elif health > 80 and health < 100:
+		health = 100
+
+
+func _on_melee_attack_area_body_entered(body):
+	if body.is_in_group("enemies"):
+		print_debug("Something entered in HUT area:" + body.name)
+		enemies_in_melee_attack_area.append(body)
+
+
+func _on_melee_attack_area_body_exited(body):
+	if body.is_in_group("enemies"):
+		enemies_in_melee_attack_area.erase(body)
+		print_debug("Something exited from HUT area:" + body.name)

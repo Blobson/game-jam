@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwe44bl2vkhku"]
+[gd_scene load_steps=12 format=3 uid="uid://cwe44bl2vkhku"]
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
 [ext_resource type="PackedScene" uid="uid://dxa15bibmxb0m" path="res://units/neutral/Hut/hut.tscn" id="8_61hxf"]
 [ext_resource type="Texture2D" uid="uid://80uoy8wlmd0e" path="res://levels/Level1/Trees.png" id="9_b1quy"]
+
+[sub_resource type="Curve2D" id="Curve2D_ejcfy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 859, -240.252, -71.8355, 240.252, 71.8355, 825, 907, -138.98, -81.9627, 138.98, 81.9627, 1405, 1343, -315, -9, 315, 9, 2025, 1606, -66, 165, 66, -165, 2415, 1333, -171, 108, 171, -108, 2682, 925, -153, 3, 153, -3, 3123, 840, 0, 0, 0, 0, 3761, 847)
+}
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_h2wft"]
 _data = {
@@ -27,22 +33,37 @@ position = Vector2(1920, 1230)
 texture = ExtResource("2_yxbi5")
 metadata/_edit_lock_ = true
 
-[node name="Way" type="Path2D" parent="."]
+[node name="TopWay" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ejcfy")
+script = ExtResource("2_cmdcf")
+width = 100
+
+[node name="MutantSpawn" type="Node2D" parent="TopWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("6_tsd4y")
+first_wave_time = 3.0
+
+[node name="GrrSpawn" type="Node2D" parent="TopWay"]
+script = ExtResource("3_cupwo")
+enemy_type = ExtResource("4_afbm1")
+enemy_count = 2
+first_wave_time = 10.0
+
+[node name="BottomWay" type="Path2D" parent="."]
 curve = SubResource("Curve2D_h2wft")
 script = ExtResource("2_cmdcf")
 width = 100
 metadata/_edit_lock_ = true
 
-[node name="MutantSpawn" type="Node2D" parent="Way"]
+[node name="MutantSpawn" type="Node2D" parent="BottomWay"]
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_tsd4y")
-enemy_count = 3
-first_wave_time = 0.1
+enemy_count = 2
+first_wave_time = 1.0
 
-[node name="CrystallSpawn" type="Node2D" parent="Way"]
+[node name="GrrSpawn" type="Node2D" parent="BottomWay"]
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("4_afbm1")
-enemy_count = 3
 first_wave_time = 12.0
 
 [node name="TowerBuildLocation" parent="." instance=ExtResource("3_72q32")]

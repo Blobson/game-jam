@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://brg2nif745u8r"]
+[gd_scene load_steps=7 format=3 uid="uid://defmylsgqlcgm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
 [ext_resource type="PackedScene" uid="uid://cwe44bl2vkhku" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
 [ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
 [ext_resource type="AudioStream" uid="uid://dvrtue6n87uo2" path="res://audio/Dialog.wav" id="3_e2mlp"]
+[ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]
+[ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
 
-[node name="Game" type="Node2D"]
+[node name="game" type="Node2D"]
 script = ExtResource("1_ittro")
-
-[node name="Level1" parent="." instance=ExtResource("1_npqrb")]
 
 [node name="Camera" parent="." instance=ExtResource("3_5nf3m")]
 
@@ -16,4 +16,29 @@ script = ExtResource("1_ittro")
 stream = ExtResource("3_e2mlp")
 bus = &"Music"
 
-[node name="Camera" parent="." instance=ExtResource("3_5nf3m")]
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="HutAbitities" type="HBoxContainer" parent="ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -315.0
+offset_right = 334.0
+offset_bottom = -188.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="RepairAbilityBotton" parent="ui/HutAbitities" instance=ExtResource("6_afhe7")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="JumpAttackAbilityBotton" parent="ui/HutAbitities" instance=ExtResource("5_d5dkq")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="level" type="Node" parent="."]
+
+[node name="Level1" parent="level" instance=ExtResource("1_npqrb")]
