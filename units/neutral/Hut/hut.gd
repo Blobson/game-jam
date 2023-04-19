@@ -5,7 +5,7 @@ class_name Hut extends Node2D
 
 
 func _ready():
-	pass # Replace with function body.
+	$AnimationPlayer.play("idle")
 
 
 func _on_hit_box_body_entered(body):
