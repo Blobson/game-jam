@@ -234,7 +234,7 @@ radius = 320.0
 script = ExtResource("2_wgurc")
 health = 50
 attack_power = 15
-debug_area_circle = true
+debug_damage_area = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
 position = Vector2(-3, 28)
