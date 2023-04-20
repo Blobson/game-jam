@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbu6j6b4d88ih"]
+
+[ext_resource type="PackedScene" uid="uid://52llhe7trspm" path="res://towers/CatapultTower/catapult_tower.tscn" id="1_byqji"]
+[ext_resource type="Script" path="res://towers/CatapultTower/catapult_tower_test.gd" id="1_w2yp0"]
+[ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_md1xs"]
+[ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="3_m6766"]
+[ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="4_p4ghj"]
+
+[sub_resource type="Curve2D" id="Curve2D_irebv"]
+_data = {
+"points": PackedVector2Array(-75.5099, 117.04, 0, 0, 1069, 882, -118.1, 1.35804, 118.1, -1.35804, 1292, 663, 0, 0, 0, 0, 1503, 870)
+}
+point_count = 3
+
+[node name="CatapultTowerTest" type="Node2D"]
+script = ExtResource("1_w2yp0")
+
+[node name="CatapultTower" parent="." instance=ExtResource("1_byqji")]
+position = Vector2(1281, 844)
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_irebv")
+script = ExtResource("2_md1xs")
+
+[node name="EnemySpawn" type="Node2D" parent="EnemyPath"]
+script = ExtResource("3_m6766")
+enemy_type = ExtResource("4_p4ghj")
+first_wave_time = 1.0
+wave_timeout = 5.0
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]

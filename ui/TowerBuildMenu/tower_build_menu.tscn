@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://lbv5s485fr7j"]
+[gd_scene load_steps=6 format=3 uid="uid://7lweogxow4e1"]
 
-[ext_resource type="Texture2D" uid="uid://dntiyvw3dkd0t" path="res://ui/TowerBuildlMenu/golden_circle.png" id="1_1wydq"]
-[ext_resource type="Script" path="res://ui/TowerBuildlMenu/tower_build_menu.gd" id="1_o84e2"]
-[ext_resource type="Script" path="res://ui/TowerBuildlMenu/radial_container.gd" id="2_s8l34"]
-[ext_resource type="Texture2D" uid="uid://dhyfbhsxnmom6" path="res://ui/TowerBuildlMenu/btn.png" id="3_dg4pe"]
+[ext_resource type="Texture2D" uid="uid://dntiyvw3dkd0t" path="res://ui/TowerBuildMenu/golden_circle.png" id="1_1wydq"]
+[ext_resource type="Script" path="res://ui/TowerBuildMenu/tower_build_menu.gd" id="1_o84e2"]
+[ext_resource type="Script" path="res://ui/TowerBuildMenu/radial_container.gd" id="2_s8l34"]
+[ext_resource type="Texture2D" uid="uid://dhyfbhsxnmom6" path="res://ui/TowerBuildMenu/btn.png" id="3_dg4pe"]
 [ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://towers/TestTower/13.png" id="5_ql28x"]
 
 [node name="TowerBuildMenu" type="Node2D"]

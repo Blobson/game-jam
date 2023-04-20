@@ -6,15 +6,16 @@ var current_build_location
 @onready var current_level = get_node("/root/game/level").get_child(0)
 
 var towers = {
-	"tower_1": "res://towers/TowerSaw/tower_saw.tscn"
+	"tower_1": preload("res://towers/TowerSaw/tower_saw.tscn"),
+	"tower_2": preload("res://towers/CatapultTower/catapult_tower.tscn")
 }
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#устанавливаем позицию камеры по центру картинки заднего плана
-	$Camera.set("position", current_level.get_node("Background").position)
-	tower_build_menu = load("res://ui/TowerBuildlMenu/tower_build_menu.tscn").instantiate()
+	$Camera.position = current_level.get_node("Background").position
+	tower_build_menu = load("res://ui/TowerBuildMenu/tower_build_menu.tscn").instantiate()
 	$BackgroundMusic.play()
 	
 #	current_level.print_tree_pretty()
@@ -43,7 +44,7 @@ func _on_BuildMenu_TowerSelected(tower):
 	print_debug("Handle BuildMenu_TowerSelected(): tower=" + tower)
 	current_level.remove_child(tower_build_menu)
 	if tower in towers:
-		var twr = load(towers[tower]).instantiate()
+		var twr = towers[tower].instantiate()
 		twr.position = tower_build_menu.position
 		add_child(twr)
 	else:

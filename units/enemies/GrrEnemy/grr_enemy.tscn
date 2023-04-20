@@ -21,10 +21,6 @@ texture = ExtResource("2_nh76l")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dd4bk")
 
-[node name="Label" parent="." index="2"]
-offset_top = 20.0
-offset_bottom = 54.0
-
-[node name="HpProgressBar" parent="." index="3"]
+[node name="HpProgressBar" parent="." index="2"]
 offset_top = -84.0
 offset_bottom = -66.0
