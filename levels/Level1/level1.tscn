@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwe44bl2vkhku"]
+[gd_scene load_steps=10 format=3 uid="uid://doneg4kqldq6m"]
 
 [ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]

@@ -15,11 +15,9 @@ func _input(event):
 	# print_tree_pretty()
 	
 	if event is InputEventAction && !event.is_pressed():
-		print_debug("Emit BuildMenu_TowerSelected signal: tower=" + event.action)
 		BuildMenu_TowerSelected.emit(event.action)
 		# var p = get_parent()
 		# get_node("/root").set_input_as_handled()
 				
 	if event is InputEventScreenTouch && !event.is_pressed():
-		print_debug("Emit BuildMenu_Close signal")
 		BuildMenu_Close.emit()

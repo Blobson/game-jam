@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://defmylsgqlcgm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
-[ext_resource type="PackedScene" uid="uid://cwe44bl2vkhku" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
+[ext_resource type="PackedScene" uid="uid://doneg4kqldq6m" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
 [ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
 [ext_resource type="AudioStream" uid="uid://ux0tnldj2u88" path="res://audio/Desert.wav" id="3_yl2if"]
 [ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]

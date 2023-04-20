@@ -1,4 +1,4 @@
-extends Enemy
+class_name Mutant extends Enemy
 
 func _ready():
 	$AnimationPlayer.play("walk")

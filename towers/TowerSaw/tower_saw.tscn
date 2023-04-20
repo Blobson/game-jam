@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ccm1qveururyj"]
+[gd_scene load_steps=35 format=3 uid="uid://ccm1qveururyj"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
@@ -220,58 +220,36 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emrh1"]
-radius = 100.0
-height = 238.0
+radius = 83.0
+height = 194.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_760ey"]
-radius = 106.0
-height = 254.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ue04v"]
-radius = 320.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_3am5f"]
+radius = 400.0
 
 [node name="TowerSaw" instance=ExtResource("1_nx3tx")]
 script = ExtResource("2_wgurc")
-health = 50
-attack_power = 15
-debug_damage_area = true
+attack_distance = 400.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower" index="0"]
-position = Vector2(-3, 28)
-scale = Vector2(1.1, 1.1)
+[node name="AnimatedSprite2D" parent="Tower" index="0"]
+position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_fvuf2")
 animation = &"Idle"
-autoplay = "Work"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
-position = Vector2(0, 36)
+position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_emrh1")
 
-[node name="HitBox" parent="." index="1"]
-visible = false
+[node name="DamageArea" parent="." index="1"]
+position = Vector2(0, 27)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 36)
-shape = SubResource("CapsuleShape2D_760ey")
-debug_color = Color(1, 1, 0, 0.176471)
+[node name="CollisionShape2D" parent="DamageArea" index="0"]
+scale = Vector2(1, 0.7)
+shape = SubResource("CircleShape2D_3am5f")
 
-[node name="DamageArea" parent="." index="2"]
-position = Vector2(0, -15)
+[node name="AttackTimer" parent="." index="2"]
+wait_time = 5.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
-position = Vector2(0, 32)
-shape = SubResource("CircleShape2D_ue04v")
-debug_color = Color(1, 0, 0, 0.121569)
-
-[node name="AttackTimer" type="Timer" parent="." index="3"]
-wait_time = 3.0
-one_shot = true
-
-[node name="TowerSawSFX" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="TowerSawSFX" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource("4_copfv")
 bus = &"SFX"
-
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
-[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

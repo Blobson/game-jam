@@ -33,6 +33,11 @@ version_control/autoload_on_startup=true
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="Units"
+2d_physics/layer_2="Towers"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

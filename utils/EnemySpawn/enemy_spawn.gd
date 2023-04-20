@@ -1,6 +1,8 @@
 class_name EnemySpawn extends Node2D
 
 @export var enemy_type: PackedScene :
+	get:
+		return enemy_type
 	set(new_enemy_type):
 		if enemy_type != new_enemy_type:
 			enemy_type = new_enemy_type

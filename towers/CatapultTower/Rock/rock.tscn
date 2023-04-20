@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://o1g75oxx1r3p"]
+
+[ext_resource type="PackedScene" uid="uid://bykbdg0k57xdu" path="res://utils/Projectile/projectile.tscn" id="1_dwdpl"]
+[ext_resource type="Texture2D" uid="uid://c2j0viffvs5vx" path="res://towers/CatapultTower/Rock/rocks.png" id="2_3gu3h"]
+
+[node name="Rock" instance=ExtResource("1_dwdpl")]
+damage_radius = 150.0
+move_speed = 150.0
+
+[node name="Sprite2D" parent="PathFollow2D" index="0"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_3gu3h")
+hframes = 8
+vframes = 8
+frame = 12

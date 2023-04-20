@@ -50,10 +50,6 @@ libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
 
-[node name="Label" parent="." index="3"]
-offset_top = 10.0
-offset_bottom = 44.0
-
-[node name="HpProgressBar" parent="." index="4"]
+[node name="HpProgressBar" parent="." index="3"]
 offset_top = -84.0
 offset_bottom = -66.0
