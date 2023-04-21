@@ -1,0 +1,228 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfei2x2y23hkq"]
+
+[ext_resource type="Script" path="res://ui/HutAbilityMenu/hut_ability_menu.gd" id="1_hycse"]
+[ext_resource type="Texture2D" uid="uid://bgty6i88tw3lq" path="res://ui/HutAbilityMenu/texture.png" id="1_npfjo"]
+[ext_resource type="Texture2D" uid="uid://cruumpqycoomg" path="res://ui/HutAbilityMenu/abilities_texture/01_active.png" id="3_i8mgr"]
+[ext_resource type="Texture2D" uid="uid://d0ydc04cepqgb" path="res://ui/HutAbilityMenu/abilities_texture/01_noactive.png" id="4_ofdul"]
+[ext_resource type="Texture2D" uid="uid://bfcprh1ue2vbk" path="res://ui/HutAbilityMenu/abilities_texture/unlocked.png" id="6_2wl6u"]
+[ext_resource type="Texture2D" uid="uid://ce1is2pu1ohac" path="res://ui/HutAbilityMenu/abilities_texture/01_pressed.png" id="6_jcqqf"]
+[ext_resource type="Theme" uid="uid://dqrari50uf7r7" path="res://ui/HutAbilityMenu/base_theme.tres" id="6_knnme"]
+
+[node name="HutAbilityMenu" type="CanvasLayer"]
+script = ExtResource("1_hycse")
+
+[node name="BackgroundTexture" type="Sprite2D" parent="."]
+position = Vector2(1433.75, 651.5)
+scale = Vector2(3.47302, 3.15366)
+texture = ExtResource("1_npfjo")
+metadata/_edit_lock_ = true
+
+[node name="AbilitiesScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 1121.0
+offset_top = 250.0
+offset_right = 1764.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AbilitiesScrollContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Abil_01" type="HBoxContainer" parent="AbilitiesScrollContainer/VBoxContainer" groups=["Abilities"]]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="FrontMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_01"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="UpgradeButton01" type="TextureButton" parent="AbilitiesScrollContainer/VBoxContainer/Abil_01"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+keep_pressed_outside = true
+texture_normal = ExtResource("3_i8mgr")
+texture_pressed = ExtResource("6_jcqqf")
+texture_disabled = ExtResource("4_ofdul")
+
+[node name="CenterMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_01"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="AbilitiesScrollContainer/VBoxContainer/Abil_01"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_knnme")
+theme_override_colors/default_color = Color(0.956863, 0.85098, 0.67451, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "This is first hut upgrade"
+fit_content = true
+scroll_active = false
+
+[node name="UnlockedCheckMark" type="Sprite2D" parent="AbilitiesScrollContainer/VBoxContainer/Abil_01"]
+visible = false
+z_index = 1
+position = Vector2(161.5, 147.932)
+scale = Vector2(0.0343623, 0.035151)
+texture = ExtResource("6_2wl6u")
+
+[node name="Abil_02" type="HBoxContainer" parent="AbilitiesScrollContainer/VBoxContainer" groups=["Abilities"]]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="FrontMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_02"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="UpgradeButton02" type="TextureButton" parent="AbilitiesScrollContainer/VBoxContainer/Abil_02"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_i8mgr")
+texture_pressed = ExtResource("6_jcqqf")
+texture_disabled = ExtResource("4_ofdul")
+
+[node name="CenterMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_02"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="AbilitiesScrollContainer/VBoxContainer/Abil_02"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_knnme")
+theme_override_colors/default_color = Color(0.956863, 0.85098, 0.67451, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "This is second hut upgrade"
+fit_content = true
+scroll_active = false
+
+[node name="UnlockedCheckMark" type="Sprite2D" parent="AbilitiesScrollContainer/VBoxContainer/Abil_02"]
+visible = false
+z_index = 1
+position = Vector2(161.5, 147.932)
+scale = Vector2(0.0343623, 0.035151)
+texture = ExtResource("6_2wl6u")
+
+[node name="Abil_03" type="HBoxContainer" parent="AbilitiesScrollContainer/VBoxContainer" groups=["Abilities"]]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="FrontMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_03"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="UpgradeButton03" type="TextureButton" parent="AbilitiesScrollContainer/VBoxContainer/Abil_03"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_i8mgr")
+texture_pressed = ExtResource("6_jcqqf")
+texture_disabled = ExtResource("4_ofdul")
+
+[node name="CenterMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_03"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="AbilitiesScrollContainer/VBoxContainer/Abil_03"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_knnme")
+theme_override_colors/default_color = Color(0.956863, 0.85098, 0.67451, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "This is third hut upgrade"
+fit_content = true
+scroll_active = false
+
+[node name="UnlockedCheckMark" type="Sprite2D" parent="AbilitiesScrollContainer/VBoxContainer/Abil_03"]
+visible = false
+z_index = 1
+position = Vector2(161.5, 147.932)
+scale = Vector2(0.0343623, 0.035151)
+texture = ExtResource("6_2wl6u")
+
+[node name="Abil_04" type="HBoxContainer" parent="AbilitiesScrollContainer/VBoxContainer" groups=["Abilities"]]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="FrontMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_04"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="UpgradeButton04" type="TextureButton" parent="AbilitiesScrollContainer/VBoxContainer/Abil_04"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_i8mgr")
+texture_pressed = ExtResource("6_jcqqf")
+texture_disabled = ExtResource("4_ofdul")
+
+[node name="CenterMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_04"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="AbilitiesScrollContainer/VBoxContainer/Abil_04"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_knnme")
+theme_override_colors/default_color = Color(0.956863, 0.85098, 0.67451, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "This is fourth hut super upgrade"
+fit_content = true
+scroll_active = false
+
+[node name="UnlockedCheckMark" type="Sprite2D" parent="AbilitiesScrollContainer/VBoxContainer/Abil_04"]
+visible = false
+z_index = 1
+position = Vector2(161.5, 147.932)
+scale = Vector2(0.0343623, 0.035151)
+texture = ExtResource("6_2wl6u")
+
+[node name="Abil_05" type="HBoxContainer" parent="AbilitiesScrollContainer/VBoxContainer" groups=["Abilities"]]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="FrontMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_05"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="UpgradeButton05" type="TextureButton" parent="AbilitiesScrollContainer/VBoxContainer/Abil_05"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_i8mgr")
+texture_pressed = ExtResource("6_jcqqf")
+texture_disabled = ExtResource("4_ofdul")
+
+[node name="CenterMargin" type="MarginContainer" parent="AbilitiesScrollContainer/VBoxContainer/Abil_05"]
+custom_minimum_size = Vector2(15, 100)
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="AbilitiesScrollContainer/VBoxContainer/Abil_05"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_knnme")
+theme_override_colors/default_color = Color(0.956863, 0.85098, 0.67451, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "This is fifth hut super upgrade"
+fit_content = true
+scroll_active = false
+
+[node name="UnlockedCheckMark" type="Sprite2D" parent="AbilitiesScrollContainer/VBoxContainer/Abil_05"]
+visible = false
+z_index = 1
+position = Vector2(161.5, 147.932)
+scale = Vector2(0.0343623, 0.035151)
+texture = ExtResource("6_2wl6u")
+
+[connection signal="pressed" from="AbilitiesScrollContainer/VBoxContainer/Abil_01/UpgradeButton01" to="." method="_on_upgrade_button_01_pressed"]
+[connection signal="pressed" from="AbilitiesScrollContainer/VBoxContainer/Abil_02/UpgradeButton02" to="." method="_on_upgrade_button_02_pressed"]
+[connection signal="pressed" from="AbilitiesScrollContainer/VBoxContainer/Abil_03/UpgradeButton03" to="." method="_on_upgrade_button_03_pressed"]
+[connection signal="pressed" from="AbilitiesScrollContainer/VBoxContainer/Abil_04/UpgradeButton04" to="." method="_on_upgrade_button_04_pressed"]
+[connection signal="pressed" from="AbilitiesScrollContainer/VBoxContainer/Abil_05/UpgradeButton05" to="." method="_on_upgrade_button_05_pressed"]
