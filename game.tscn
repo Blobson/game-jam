@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
 [ext_resource type="PackedScene" uid="uid://cwe44bl2vkhku" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
 [ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
-[ext_resource type="AudioStream" uid="uid://dvrtue6n87uo2" path="res://audio/Dialog.wav" id="3_e2mlp"]
+[ext_resource type="AudioStream" uid="uid://ux0tnldj2u88" path="res://audio/Desert.wav" id="3_yl2if"]
 [ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]
 [ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
 
@@ -13,7 +13,7 @@ script = ExtResource("1_ittro")
 [node name="Camera" parent="." instance=ExtResource("3_5nf3m")]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_e2mlp")
+stream = ExtResource("3_yl2if")
 bus = &"Music"
 
 [node name="ui" type="CanvasLayer" parent="."]
