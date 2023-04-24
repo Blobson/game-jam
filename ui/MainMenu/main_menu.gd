@@ -5,6 +5,7 @@ var gamesaved: bool = false #наличие сохранений в игре. К
 func _ready():
 	$CanvasLayer/Buttons/ContinueButton.grab_focus() #Подсвечена кнопка 'продолжить' при запуске
 	game_saved_test()
+	$MainTheme.play()
 
 
 func game_saved_test(): #проверка наличия сохранений

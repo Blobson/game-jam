@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddaiqwdtdf0sm"]
+[gd_scene load_steps=3 format=3 uid="uid://ddaiqwdtdf0sm"]
 
 [ext_resource type="Script" path="res://ui/MainMenu/main_menu.gd" id="1_1io0r"]
+[ext_resource type="AudioStream" uid="uid://ctf1j24tybtks" path="res://audio/Main.wav" id="2_ao5b8"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_1io0r")
@@ -37,6 +38,10 @@ text = "Settings"
 [node name="QuitButton" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 2
 text = "Quit"
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ao5b8")
+bus = &"Music"
 
 [connection signal="pressed" from="CanvasLayer/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/NewGameButton" to="." method="_on_new_game_button_pressed"]
