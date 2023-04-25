@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://vbfyndsb26xu"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://towers/TowerBuildLocation/tower_build_location.gd" id="1_vd7p6"]
-[ext_resource type="Texture2D" uid="uid://ro3pt5buwrlp" path="res://towers/TowerBuildLocation/crystal.png" id="2_020g5"]
+[ext_resource type="Script" path="res://utils/TowerBuildLocation/tower_build_location.gd" id="1_vd7p6"]
+[ext_resource type="Texture2D" uid="uid://ro3pt5buwrlp" path="res://utils/TowerBuildLocation/crystal.png" id="2_020g5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcojj"]
 size = Vector2(180, 200)

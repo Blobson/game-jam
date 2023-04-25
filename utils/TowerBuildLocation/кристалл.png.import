@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvkuwvrtwoed1"
-path="res://.godot/imported/кристалл.png-84d4ceeadc02ba8628541298abc06be2.ctex"
+path="res://.godot/imported/кристалл.png-cb85355e17e753b172c9ea3e36de65d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/TowerBuildLocation/кристалл.png"
-dest_files=["res://.godot/imported/кристалл.png-84d4ceeadc02ba8628541298abc06be2.ctex"]
+source_file="res://utils/TowerBuildLocation/кристалл.png"
+dest_files=["res://.godot/imported/кристалл.png-cb85355e17e753b172c9ea3e36de65d4.ctex"]
 
 [params]
 
