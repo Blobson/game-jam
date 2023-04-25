@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://7lweogxow4e1"]
+[gd_scene load_steps=7 format=3 uid="uid://7lweogxow4e1"]
 
 [ext_resource type="Texture2D" uid="uid://dntiyvw3dkd0t" path="res://ui/TowerBuildMenu/golden_circle.png" id="1_1wydq"]
 [ext_resource type="Script" path="res://ui/TowerBuildMenu/tower_build_menu.gd" id="1_o84e2"]
 [ext_resource type="Script" path="res://ui/TowerBuildMenu/radial_container.gd" id="2_s8l34"]
 [ext_resource type="Texture2D" uid="uid://dhyfbhsxnmom6" path="res://ui/TowerBuildMenu/btn.png" id="3_dg4pe"]
-[ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://towers/TestTower/13.png" id="5_ql28x"]
+[ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://ui/TowerBuildMenu/icons/tower_saw_icon.png" id="5_wplcc"]
+[ext_resource type="Texture2D" uid="uid://dyn3esshjs5ta" path="res://ui/TowerBuildMenu/icons/catapult_tower_icon.png" id="6_4is7e"]
 
 [node name="TowerBuildMenu" type="Node2D"]
 z_index = 1
@@ -31,21 +32,19 @@ texture_normal = ExtResource("3_dg4pe")
 action = "tower_1"
 
 [node name="Sprite2D" type="Sprite2D" parent="RadialContainer/TouchScreenButton"]
-position = Vector2(31, 26)
-scale = Vector2(0.0737135, 0.0803571)
-texture = ExtResource("5_ql28x")
+position = Vector2(32, 27)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_wplcc")
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="RadialContainer"]
 position = Vector2(33, 34)
 texture_normal = ExtResource("3_dg4pe")
 action = "tower_2"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton2"]
-offset_left = 24.0
-offset_top = 14.0
-offset_right = 64.0
-offset_bottom = 54.0
-text = "2"
+[node name="Sprite2D" type="Sprite2D" parent="RadialContainer/TouchScreenButton2"]
+position = Vector2(30, 25)
+scale = Vector2(0.013, 0.013)
+texture = ExtResource("6_4is7e")
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="RadialContainer"]
 position = Vector2(-40, 54)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t6csr8nc8am2"
-path="res://.godot/imported/13.png-e208d02ad0bc06d0c92c9fb5f99e72eb.ctex"
+uid="uid://dyn3esshjs5ta"
+path="res://.godot/imported/catapult_tower_icon.png-a589d44b14ef33d5c4fae987e192e678.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://towers/TestTower/13.png"
-dest_files=["res://.godot/imported/13.png-e208d02ad0bc06d0c92c9fb5f99e72eb.ctex"]
+source_file="res://ui/TowerBuildMenu/icons/catapult_tower_icon.png"
+dest_files=["res://.godot/imported/catapult_tower_icon.png-a589d44b14ef33d5c4fae987e192e678.ctex"]
 
 [params]
 

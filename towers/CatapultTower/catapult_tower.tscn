@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://52llhe7trspm"]
+[gd_scene load_steps=6 format=3 uid="uid://52llhe7trspm"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_u1541"]
 [ext_resource type="Script" path="res://towers/CatapultTower/catapult_tower.gd" id="2_34iv6"]
@@ -15,6 +15,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p8f7o"]
+radius = 500.0
+
 [node name="CatapultTower" instance=ExtResource("1_u1541")]
 script = ExtResource("2_34iv6")
 attack_interval = 5.0
@@ -22,6 +25,9 @@ attack_interval = 5.0
 [node name="AnimatedSprite2D" parent="Tower" index="0"]
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_x8byb")
+
+[node name="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource("CircleShape2D_p8f7o")
 
 [node name="AttackTimer" parent="." index="2"]
 wait_time = 5.0

@@ -41,6 +41,12 @@ func _ready():
 	$AttackTimer.timeout.connect(_on_attack_timer_timeout)
 
 
+func _draw():
+	var shape = $DamageArea/CollisionShape2D.shape as CircleShape2D
+	draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
+	draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
+
+
 func _on_damage_area_body_entered(body):
 	if body.is_in_group("enemies"):
 		_enemies_in_range.append(body)

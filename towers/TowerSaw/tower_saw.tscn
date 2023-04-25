@@ -1,8 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://ccm1qveururyj"]
+[gd_scene load_steps=35 format=3]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
-[ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/TowerSaw/texture/tower_saw_animation.png" id="3_iffgn"]
+[ext_resource type="Texture2D" uid="uid://cvxrtytr20b2h" path="res://towers/TowerSaw/tower_saw_animation.png" id="3_iffgn"]
 [ext_resource type="AudioStream" uid="uid://c7vsmg3ucjkhn" path="res://towers/TowerSaw/buzz-saw_2.ogg" id="4_copfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxa2s"]
@@ -223,7 +223,7 @@ animations = [{
 radius = 83.0
 height = 194.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3am5f"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcdqo"]
 radius = 400.0
 
 [node name="TowerSaw" instance=ExtResource("1_nx3tx")]
@@ -245,7 +245,7 @@ position = Vector2(0, 27)
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 scale = Vector2(1, 0.7)
-shape = SubResource("CircleShape2D_3am5f")
+shape = SubResource("CircleShape2D_jcdqo")
 
 [node name="AttackTimer" parent="." index="2"]
 wait_time = 5.0
