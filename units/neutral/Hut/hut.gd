@@ -4,6 +4,8 @@ class_name Hut extends Node2D
 @export var attack_power: int
 @export var jump_attack_power: int = 50
 
+@onready var hp_indicator = get_node("/root/game/HealthPointerIndicator/")
+
 var enemies_in_melee_attack_area = []
 
 
@@ -18,6 +20,7 @@ func _on_hit_box_body_entered(body):
 
 func take_damage(damage):
 	health -= damage
+	hp_indicator.update_pointer_value(health)
 	if health <= 0:
 		queue_free()
 
@@ -30,8 +33,10 @@ func jump_attack():
 func hut_repair():
 	if health < 80:
 		health += 20
+		hp_indicator.update_pointer_value(health)
 	elif health > 80 and health < 100:
 		health = 100
+		hp_indicator.update_pointer_value(health)
 
 
 func _on_melee_attack_area_body_entered(body):
