@@ -1,8 +1,7 @@
 extends Control
 
 @export var rollback_time: float = 10.0
-@onready var level = get_node("/root/game/level").get_child(0)
-@onready var hut = level.get_node("Hut")
+@onready var hut = Game.getHut()
 
 
 func _on_attack_button_pressed():

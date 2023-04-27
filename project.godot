@@ -12,8 +12,13 @@ config_version=5
 
 config/name="GameJam"
 run/main_scene="res://game.tscn"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://utils/GameState/game_state.gd"
 
 [display]
 
