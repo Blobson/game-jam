@@ -17,11 +17,11 @@ func game_saved_test(): #проверка наличия сохранений
 
 
 func _on_continue_button_pressed():
-	get_tree().change_scene_to_file("saved level") #запуск сохраненного уровня
+	Game.load_level()
 
 
 func _on_new_game_button_pressed():
-	get_tree().change_scene_to_file("level1") #запуск 1го уровня
+	Game.load_level(1)
 
 
 func _on_settings_button_pressed():
@@ -29,4 +29,4 @@ func _on_settings_button_pressed():
 
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	Game.quit()
