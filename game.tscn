@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://defmylsgqlcgm"]
+[gd_scene load_steps=8 format=3 uid="uid://defmylsgqlcgm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
 [ext_resource type="PackedScene" path="res://levels/Level1/level1.tscn" id="1_npqrb"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ux0tnldj2u88" path="res://audio/Desert.wav" id="3_yl2if"]
 [ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]
 [ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
+[ext_resource type="PackedScene" uid="uid://bp5yn4ox4jqwy" path="res://ui/HealthPointerIndicator/health_pointer_indicator.tscn" id="7_vo1kw"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ittro")
@@ -42,3 +43,19 @@ size_flags_vertical = 4
 [node name="level" type="Node" parent="."]
 
 [node name="Level1" parent="level" instance=ExtResource("1_npqrb")]
+
+[node name="HealthPointerIndicator" parent="." instance=ExtResource("7_vo1kw")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3597.0
+offset_top = 1917.0
+offset_right = 3597.0
+offset_bottom = 1917.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 8
+size_flags_vertical = 8
