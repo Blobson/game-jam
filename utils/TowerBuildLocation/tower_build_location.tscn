@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cpffk52pgefad"]
 
 [ext_resource type="Script" path="res://utils/TowerBuildLocation/tower_build_location.gd" id="1_vd7p6"]
 [ext_resource type="Texture2D" uid="uid://ro3pt5buwrlp" path="res://utils/TowerBuildLocation/crystal.png" id="2_020g5"]
@@ -7,11 +7,10 @@
 size = Vector2(180, 200)
 
 [node name="TowerBuildLocation" type="Node2D"]
-position = Vector2(0, -38)
 script = ExtResource("1_vd7p6")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(-98, -107)
+position = Vector2(-100, -114)
 scale = Vector2(0.99422, 0.992)
 texture_normal = ExtResource("2_020g5")
 shape = SubResource("RectangleShape2D_mcojj")
