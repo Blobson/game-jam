@@ -26,10 +26,7 @@ func _init():
 
 func _ready():
 	hp_progress.max_value = health
-	@warning_ignore("integer_division")
-	hp_progress.step = health / 5
 	hp_progress.value = health
-
 
 
 ## Установить новый EnemyPathFollower
