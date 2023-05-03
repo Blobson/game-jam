@@ -6,6 +6,8 @@ class_name Enemy extends CharacterBody2D
 @export var health: int = 50
 ## Сила атаки моба
 @export var attack_power: int = 10
+## Золото за убийство
+@export var gold_cost: int = 10
 
 @onready var hp_progress = $HpProgressBar
 @onready var sprite = $Sprite2D
@@ -57,6 +59,7 @@ func take_damage(damage_count):
 ## Смерть юнита
 func die():
 	queue_free()
+	Game.gold += gold_cost
 	
 
 func _process(delta: float):
