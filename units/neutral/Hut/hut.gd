@@ -4,7 +4,7 @@ class_name Hut extends Node2D
 @export var attack_power: int
 @export var jump_attack_power: int = 50
 
-@onready var hp_indicator = get_node("/root/game/HealthPointerIndicator/")
+@onready var hp_indicator = get_node("/root/game/ui/HealthPointerIndicator/")
 
 var enemies_in_melee_attack_area = []
 
