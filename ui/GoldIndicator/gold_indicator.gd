@@ -1,26 +1,29 @@
 class_name GoldIndicator extends Control
 
-#Время анимации tween
-@onready var tween_duration: float = 0.8
-
+# Время анимации tween
+@export var tween_duration: float = 0.8
+# Tween для анимации индикатора
+var tween_indicator
 
 func _ready():
 	#Подсоединяем сигнал change_value
-	var game = get_node("/root/Game")
-	Game.gold_changed.connect(change_value)
+	Game.gold_changed.connect(on_gold_changed)
+	#Обновляем индикатор, в начале уровня
+	$HBoxContainer/GoldCounter.text = str(Game.gold)
 
 
-func change_value(old, new):
-	#создаем tween, задаем параметры 
-	var tween_indicator = create_tween()
-	tween_indicator.set_trans(Tween.TRANS_QUAD)
-	tween_indicator.set_ease(Tween.EASE_IN_OUT)
-	#Запускаем tween, передаем значение в counert_interpolate
-	tween_indicator.tween_method(counter_interpolate, old, new, tween_duration)
+func on_gold_changed(old: int, new: int):
+	if tween_indicator and tween_indicator.is_valid():
+		tween_indicator.kill()
+	#Создаем tween, задаем параметры анимирования
+	tween_indicator = create_tween() \
+	.set_trans(Tween.TRANS_QUAD) \
+	.set_ease(Tween.EASE_IN_OUT)
+	# Запускаем tween, передаем значение в animate_counter
+	var from = int($HBoxContainer/GoldCounter.text)
+	tween_indicator.tween_method(animate_counter, from, new, tween_duration)
 
 
-func counter_interpolate(gold_value):
-	#Округляем значение
-	var round_gold_value = round(gold_value)
-	#Отображаем на индикаторе
-	$HBoxContainer/GoldCounter.text = str(round_gold_value)
+func animate_counter(gold_value: int):
+	# Отображаем на индикаторе
+	$HBoxContainer/GoldCounter.text = str(gold_value)
