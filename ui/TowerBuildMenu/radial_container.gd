@@ -22,7 +22,7 @@ func place_buttons():
 	#Величина изменения угла для каждой кнопки
 	var angle_offset = (2*PI)/buttons.size() #в градусах
 
-	var angle = 0 #в радианах
+	var angle = 0.785398 #в радианах
 	for btn in buttons:
 		#рассчет позиции x и y для кнопок под заданным углом
 		var x = cos(angle)*button_radius
