@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=35 format=3 uid="uid://dt6eulb0ifpb0"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_nx3tx"]
 [ext_resource type="Script" path="res://towers/TowerSaw/tower_saw.gd" id="2_wgurc"]
@@ -239,9 +239,6 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
 position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_emrh1")
-
-[node name="DamageArea" parent="." index="1"]
-position = Vector2(0, 27)
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 scale = Vector2(1, 0.7)

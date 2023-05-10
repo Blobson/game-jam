@@ -13,6 +13,11 @@ class_name Enemy extends CharacterBody2D
 @onready var sprite = $Sprite2D
 
 var path_follower: EnemyPathFollower
+var targets_in_range = []
+enum EnemyState {WALKING, ATTACKING, DIEING, DEAD}
+var state = EnemyState.WALKING
+var attack_target = null
+
 
 ## Направление движения юнита
 var move_direction: Vector2 :
@@ -29,6 +34,9 @@ func _init():
 func _ready():
 	hp_progress.max_value = health
 	hp_progress.value = health
+	$AttackTimer.timeout.connect(attack)
+	$DamageArea.body_entered.connect(_on_damage_area_body_entered)
+	$DamageArea.body_exited.connect(_on_damage_area_body_exited)
 
 
 ## Установить новый EnemyPathFollower
@@ -63,7 +71,7 @@ func die():
 	
 
 func _process(delta: float):
-	if path_follower:
+	if path_follower and state == EnemyState.WALKING:
 		if path_follower.is_end_reached():
 			path_follower = null
 			queue_free() # TODO: здесь мы досигли избушки и должны начать её бить
@@ -73,3 +81,42 @@ func _process(delta: float):
 
 func _draw():
 	draw_line(Vector2.ZERO, move_direction * move_speed, Color.DARK_RED)
+
+
+## Обнаружение тела в области
+func _on_damage_area_body_entered(body):
+	if body.name == 'HutBody' and state not in [EnemyState.DEAD, EnemyState.DIEING]:
+		targets_in_range.append(body)
+		if state not in [EnemyState.ATTACKING]:
+			select_next_target()
+		
+
+
+## Выход тела из области
+func _on_damage_area_body_exited(body):
+	targets_in_range.erase(body.get_parent())
+
+
+## Поиск следующей цели
+func find_target():
+	var selected_target = null
+	var selected_target_distance = ($DamageArea/CollisionShape2D.shape as CircleShape2D).radius * 2
+	for target in targets_in_range:
+		var distance = global_position.distance_to(target.global_position)
+		if distance < selected_target_distance:
+			selected_target = target
+			selected_target_distance = distance
+	return selected_target
+	
+
+func select_next_target():
+	attack_target = find_target()
+	if attack_target != null:
+		state = EnemyState.ATTACKING
+		attack()
+	else:
+		state = EnemyState.WALKING
+	
+
+func attack():
+	pass
