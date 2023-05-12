@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://o1g75oxx1r3p"]
+[gd_scene load_steps=5 format=3 uid="uid://o1g75oxx1r3p"]
 
 [ext_resource type="PackedScene" uid="uid://bykbdg0k57xdu" path="res://utils/Projectile/projectile.tscn" id="1_dwdpl"]
 [ext_resource type="Texture2D" uid="uid://c2j0viffvs5vx" path="res://towers/CatapultTower/Rock/rocks.png" id="2_3gu3h"]
+[ext_resource type="AudioStream" uid="uid://darvew4blgrgy" path="res://towers/CatapultTower/Rock/rock_destroy.ogg" id="3_y5dp4"]
+[ext_resource type="Script" path="res://towers/CatapultTower/Rock/DestroySFX.gd" id="4_taumq"]
 
 [node name="Rock" instance=ExtResource("1_dwdpl")]
 damage_radius = 150.0
@@ -13,3 +15,10 @@ texture = ExtResource("2_3gu3h")
 hframes = 8
 vframes = 8
 frame = 12
+
+[node name="DestroySFX" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("3_y5dp4")
+script = ExtResource("4_taumq")
+
+[connection signal="destroy" from="." to="DestroySFX" method="_on_rock_destroy"]
+[connection signal="finished" from="DestroySFX" to="." method="_on_destroy_sfx_finished"]

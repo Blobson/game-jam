@@ -34,5 +34,6 @@ func fire(target: Vector2, target_velocity: Vector2 = Vector2.ZERO):
 		target += target_velocity * time
 	# Стреляем по цели
 	rock.fire($FirePivot.position, target)
+	$SwooshFlyingSFX.pitch_scale = randf_range(0.8, 1.2)
+	$SwooshFlyingSFX.play()
 	call_deferred("add_child", rock)
-

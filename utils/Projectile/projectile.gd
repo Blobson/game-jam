@@ -14,6 +14,10 @@ class_name Projectile extends Path2D
 # Логика расчетов баллистической траектории
 var ballistics: Ballistics
 
+var destroy_timer
+
+signal destroy
+
 
 func _ready():
 	($PathFollow2D/DamageArea/CollisionShape2D.shape as CircleShape2D).radius = damage_radius
@@ -51,9 +55,14 @@ func fire(from: Vector2, to: Vector2):
 ## Обработчик окончания полёта по траектории
 func _destroy():
 	apply_damage()
+	emit_signal("destroy")
+
+
+##уничтожаем камень
+func _on_destroy_sfx_finished():
 	queue_free()
-
-
+	
+	
 ## Наносим дамаг всем в зоне поражения
 func apply_damage():
 	for enemy in get_tree().get_nodes_in_group(damage_group):
