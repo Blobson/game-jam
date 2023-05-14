@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxa15bibmxb0m"]
+[gd_scene load_steps=9 format=3 uid="uid://dxa15bibmxb0m"]
 
 [ext_resource type="Script" path="res://units/neutral/Hut/hut.gd" id="1_3bmu8"]
 [ext_resource type="Texture2D" uid="uid://dfwg6lsgodab0" path="res://units/neutral/Hut/hut_animation_texture.png" id="2_pn2xd"]
+[ext_resource type="AudioStream" uid="uid://d0rc13chm18v5" path="res://units/neutral/Hut/steam hisses - Marker #3.ogg" id="3_jpvd1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0h4yd"]
 radius = 65.0
@@ -86,6 +87,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6soaa")
 debug_color = Color(0.92549, 0.180392, 0, 0.419608)
 
+[node name="SteamHissSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jpvd1")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="QueueTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="MeleeAttackArea" to="." method="_on_melee_attack_area_body_entered"]
 [connection signal="body_exited" from="MeleeAttackArea" to="." method="_on_melee_attack_area_body_exited"]
+[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]

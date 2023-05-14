@@ -5,7 +5,9 @@ class_name Hut extends Node2D
 @export var jump_attack_power: int = 50
 
 @onready var hp_indicator = get_node("/root/game/ui/HealthPointerIndicator/")
+@onready var hut_explosion = load("res://units/neutral/Hut/HutExplosion/hut_explosion.tscn")
 
+var destroyed = false
 var enemies_in_melee_attack_area = []
 
 
@@ -14,6 +16,7 @@ func _init():
 
 func _ready():
 	$AnimationPlayer.play("idle")
+	$SteamHissSFX.play()
 
 
 func _on_hit_box_body_entered(body):
@@ -24,8 +27,16 @@ func _on_hit_box_body_entered(body):
 func take_damage(damage):
 	health -= damage
 	hp_indicator.update_pointer_value(health)
-	if health <= 0:
-		queue_free()
+	if health <= 0 and not destroyed:
+		_destroy()
+
+
+func _destroy():
+	destroyed = true
+	health = 0
+	var explosion = hut_explosion.instantiate()
+	$HutBody/Sprite2D.replace_by(explosion)
+	$QueueTimer.start(2)
 
 
 func jump_attack():
@@ -52,3 +63,7 @@ func _on_melee_attack_area_body_exited(body):
 	if body.is_in_group("enemies"):
 		enemies_in_melee_attack_area.erase(body)
 		print_debug("Something exited from HUT area:" + body.name)
+
+
+func _on_queue_timer_timeout():
+	queue_free()
