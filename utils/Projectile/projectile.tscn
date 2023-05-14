@@ -23,3 +23,5 @@ scale = Vector2(1, 0.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/DamageArea"]
 shape = SubResource("CircleShape2D_tcofy")
+
+[node name="FlyingSFX" type="AudioStreamPlayer2D" parent="PathFollow2D"]

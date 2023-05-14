@@ -22,6 +22,8 @@ func _ready():
 		tween.tween_method(_progress_ratio_animation, 0.0, 1.0, ballistics.time) \
 			.set_trans(Tween.TRANS_LINEAR)
 		tween.finished.connect(_destroy)
+	$PathFollow2D/FlyingSFX.pitch_scale = randf_range(0.8, 1.2)
+	$PathFollow2D/FlyingSFX.play()	
 
 
 # Синусоидальная функция для анимации полёта снаряда 
