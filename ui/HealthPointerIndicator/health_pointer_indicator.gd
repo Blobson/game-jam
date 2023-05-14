@@ -28,7 +28,7 @@ func update_pointer_value(current_hp):
 	print_debug("Pointer value is, {value} *".format({"value":pointer_value,}))
 	update_animation(current_hp)
 	if current_hp <= 0:
-		queue_free()
+		current_hp = 0
 
 	
 func update_animation(current_hp):

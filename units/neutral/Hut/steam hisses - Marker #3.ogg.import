@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0rc13chm18v5"
+path="res://.godot/imported/steam hisses - Marker #3.ogg-2338c3c3458588a347a9c39bf03202dc.oggvorbisstr"
+
+[deps]
+
+source_file="res://units/neutral/Hut/steam hisses - Marker #3.ogg"
+dest_files=["res://.godot/imported/steam hisses - Marker #3.ogg-2338c3c3458588a347a9c39bf03202dc.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
