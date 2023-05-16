@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp1hwqb1knibc"]
+
+[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_6fjl1"]
+[ext_resource type="Texture2D" uid="uid://cnmulecf4dmht" path="res://units/enemies/Raider2/raider2.png" id="2_6o20h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sj1lb"]
+radius = 13.0
+height = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6l5i"]
+radius = 81.0
+
+[sub_resource type="Animation" id="Animation_dlgb3"]
+resource_name = "run"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_8yuge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw05h"]
+_data = {
+"RESET": SubResource("Animation_8yuge"),
+"run": SubResource("Animation_dlgb3")
+}
+
+[node name="Raider2" instance=ExtResource("1_6fjl1")]
+health = 70
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6o20h")
+hframes = 5
+vframes = 3
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 76)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sj1lb")
+
+[node name="HpProgressBar" parent="." index="2"]
+offset_top = -113.0
+offset_bottom = -95.0
+
+[node name="CollisionShape2D" parent="DamageArea" index="0"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_c6l5i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+autoplay = "run"
+libraries = {
+"": SubResource("AnimationLibrary_aw05h")
+}
