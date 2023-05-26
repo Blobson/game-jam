@@ -3,7 +3,7 @@
 extends Container
 
 # радиус кнопки
-var btn_size = 30
+var btn_size = 35
 # радиус круга кнопок
 var button_radius = 90 
 
@@ -27,7 +27,6 @@ func place_buttons():
 		#рассчет позиции x и y для кнопок под заданным углом
 		var x = cos(angle)*button_radius
 		var y = sin(angle)*button_radius
-
 		
 		#>мы хотим центрировать элемент по кругу.
 		#>для этого нам нужно сместить рассчитанные x и y соответственно на половину высоты и ширины

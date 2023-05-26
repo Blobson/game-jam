@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy2gyl7va6sr"]
+
+[ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="1_df23n"]
+[ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="2_qwu2r"]
+[ext_resource type="PackedScene" uid="uid://bxtlpgasb2f4f" path="res://units/enemies/Archer/archer.tscn" id="3_oida4"]
+[ext_resource type="PackedScene" uid="uid://dd7ckgskbw04g" path="res://units/neutral/Hut/hut.tscn" id="4_gny06"]
+
+[sub_resource type="Curve2D" id="Curve2D_f5a8o"]
+_data = {
+"points": PackedVector2Array(-385.1, -41.5304, 385.1, 41.5304, 1006, 1016, -596.528, -11.3265, 596.528, 11.3265, 1578, 1092)
+}
+point_count = 2
+
+[node name="Node2D" type="Node2D"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_f5a8o")
+script = ExtResource("1_df23n")
+
+[node name="EnemySpawn" type="Node2D" parent="EnemyPath"]
+script = ExtResource("2_qwu2r")
+enemy_type = ExtResource("3_oida4")
+first_wave_time = 1.0
+wave_timeout = 1000.0
+
+[node name="Hut" parent="." instance=ExtResource("4_gny06")]
+position = Vector2(1522, 929)

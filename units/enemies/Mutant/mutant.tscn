@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://d2ntd11xhyjoa"]
 
 [ext_resource type="Script" path="res://units/enemies/Mutant/mutant.gd" id="1_6711r"]
-[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_vgxne"]
+[ext_resource type="PackedScene" uid="uid://byiwo55sivh0m" path="res://units/enemies/Enemy/enemy.tscn" id="1_vgxne"]
 [ext_resource type="Texture2D" uid="uid://febyysy6d0bw" path="res://units/enemies/Mutant/mutant.png" id="2_sxr1k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aw4yd"]
@@ -45,11 +45,7 @@ frame = 1
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_aw4yd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="6"]
 libraries = {
 "": SubResource("AnimationLibrary_j3b0n")
 }
-
-[node name="HpProgressBar" parent="." index="3"]
-offset_top = -84.0
-offset_bottom = -66.0

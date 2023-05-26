@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://utils/GameState/game_state.gd"
+NodeUtils="res://utils/NodeUtils/node_utils.gd"
 
 [display]
 
@@ -41,7 +42,8 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="Units"
-2d_physics/layer_2="Towers"
+2d_physics/layer_2="Towers and Hut"
+2d_physics/layer_3="Projectiles"
 
 [rendering]
 

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7lweogxow4e1" path="res://ui/TowerBuildMenu/tower_build_menu.tscn" id="4_k8kam"]
 [ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]
 [ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
-[ext_resource type="PackedScene" uid="uid://bp5yn4ox4jqwy" path="res://ui/HealthPointerIndicator/health_pointer_indicator.tscn" id="7_vo1kw"]
+[ext_resource type="PackedScene" uid="uid://bp5yn4ox4jqwy" path="res://ui/HutHealthIndicator/hut_health_indicator.tscn" id="7_vo1kw"]
 [ext_resource type="PackedScene" uid="uid://dlmwo465gnmnf" path="res://ui/GoldIndicator/gold_indicator.tscn" id="8_4uu1s"]
 
 [node name="game" type="Node2D"]
@@ -19,10 +19,10 @@ stream = ExtResource("3_yl2if")
 bus = &"Music"
 
 [node name="ui" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="TowerBuildMenu" parent="ui" instance=ExtResource("4_k8kam")]
 visible = false
-position = Vector2(-529, 356)
 
 [node name="HutAbiltities" type="HBoxContainer" parent="ui"]
 anchors_preset = 2
@@ -51,7 +51,7 @@ offset_top = 48.0
 offset_right = 3507.0
 offset_bottom = 48.0
 
-[node name="HealthPointerIndicator" parent="ui" instance=ExtResource("7_vo1kw")]
+[node name="HutHealthIndicator" parent="ui" instance=ExtResource("7_vo1kw")]
 offset_left = 3597.0
 offset_top = 1917.0
 offset_right = 3597.0

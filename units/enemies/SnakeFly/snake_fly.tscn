@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://brfe4ie6jm1wn"]
 
-[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_71ksx"]
+[ext_resource type="PackedScene" uid="uid://byiwo55sivh0m" path="res://units/enemies/Enemy/enemy.tscn" id="1_71ksx"]
 [ext_resource type="Texture2D" uid="uid://bupjwicbjjic6" path="res://units/enemies/SnakeFly/snake_fly.png" id="2_r7tfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_igha3"]
@@ -9,6 +9,21 @@ height = 186.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7jvs"]
 radius = 119.214
+
+[sub_resource type="Animation" id="Animation_f31gy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_jxn7u"]
 resource_name = "run"
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-}
-
-[sub_resource type="Animation" id="Animation_f31gy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pt00l"]
@@ -61,15 +61,15 @@ position = Vector2(12, 113)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_igha3")
 
-[node name="HpProgressBar" parent="." index="2"]
+[node name="HealthBar" parent="." index="2"]
 offset_top = -116.0
 offset_bottom = -98.0
 
-[node name="CollisionShape2D" parent="DamageArea" index="0"]
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
 position = Vector2(23, 16)
 shape = SubResource("CircleShape2D_p7jvs")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" parent="." index="6"]
 autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_pt00l")

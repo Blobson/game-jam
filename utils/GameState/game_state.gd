@@ -1,12 +1,20 @@
 extends Node
 
 signal gold_changed(from, to)
+signal hut_health_changed(from, to)
 
 ## Номер текущего уровня
 var level_id: int = 1
 
 ## Текущий уровень
 var level: Node2D
+
+## Битовые флаги дебага
+enum { 
+	DRAW_UNIT_VELOCITY = 1, 
+	DRAW_TOWER_ATTACK_ZONES = 2 
+}
+var debug_flags: int = DRAW_UNIT_VELOCITY | DRAW_TOWER_ATTACK_ZONES
 
 ## Доступное золото
 var gold: int = 0 :

@@ -1,42 +1,46 @@
-class_name Hut extends Node2D
+class_name Hut extends StaticBody2D
 
-@export var health: int = 100
+@export var health: int = 100 :
+	set(value):
+		if health != value:
+			Game.hut_health_changed.emit(health, value)
+			health = value
+
 @export var attack_power: int
 @export var jump_attack_power: int = 50
 
-@onready var hp_indicator = get_node("/root/game/ui/HealthPointerIndicator/")
-@onready var hut_explosion = load("res://units/neutral/Hut/HutExplosion/hut_explosion.tscn")
+@onready var hut_explosion = preload("res://units/neutral/Hut/HutExplosion/hut_explosion.tscn")
 
-var destroyed = false
 var enemies_in_melee_attack_area = []
 
 
 func _init():
-	add_to_group("Hut")
+	add_to_group("hut")
+
 
 func _ready():
+	$MeleeAttackArea.body_entered.connect(_on_melee_attack_area_body_entered)
+	$MeleeAttackArea.body_exited.connect(_on_melee_attack_area_body_exited)
 	$AnimationPlayer.play("idle")
 	$SteamHissSFX.play()
 
 
-func _on_hit_box_body_entered(body):
-	if body is Enemy:
-		take_damage((body as Enemy).attack_power)
-
-
 func take_damage(damage):
-	health -= damage
-	hp_indicator.update_pointer_value(health)
-	if health <= 0 and not destroyed:
-		_destroy()
+	if health > 0:
+		health -= damage
+		if health <= 0:
+			die()
 
 
-func _destroy():
-	destroyed = true
+func is_dead() -> bool:
+	return health == 0
+
+
+func die():
 	health = 0
 	var explosion = hut_explosion.instantiate()
-	$HutBody/Sprite2D.replace_by(explosion)
-	$QueueTimer.start(2)
+	explosion.position = global_position
+	NodeUtils.replace_node(self, explosion)
 
 
 func jump_attack():
@@ -47,23 +51,15 @@ func jump_attack():
 func hut_repair():
 	if health < 80:
 		health += 20
-		hp_indicator.update_pointer_value(health)
 	elif health > 80 and health < 100:
 		health = 100
-		hp_indicator.update_pointer_value(health)
 
 
 func _on_melee_attack_area_body_entered(body):
 	if body.is_in_group("enemies"):
-		print_debug("Something entered in HUT area:" + body.name)
 		enemies_in_melee_attack_area.append(body)
 
 
 func _on_melee_attack_area_body_exited(body):
 	if body.is_in_group("enemies"):
 		enemies_in_melee_attack_area.erase(body)
-		print_debug("Something exited from HUT area:" + body.name)
-
-
-func _on_queue_timer_timeout():
-	queue_free()

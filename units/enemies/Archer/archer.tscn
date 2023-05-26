@@ -1,25 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxtlpgasb2f4f"]
 
 [ext_resource type="PackedScene" uid="uid://cfa6tkcvmpin5" path="res://units/enemies/RangedEnemy/ranged_enemy.tscn" id="1_w2qqd"]
-[ext_resource type="PackedScene" uid="uid://b7w0teenmsuxj" path="res://units/enemies/Archer/arrow.tscn" id="2_cpal1"]
+[ext_resource type="PackedScene" uid="uid://b7w0teenmsuxj" path="res://units/enemies/Archer/Arrow/arrow.tscn" id="2_x37ut"]
 [ext_resource type="Texture2D" uid="uid://cec0a8gu7jcm8" path="res://icon.svg" id="3_leoc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mee00"]
-size = Vector2(76, 77)
+size = Vector2(76, 23)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e48ad"]
 radius = 335.0
 
 [node name="Archer" instance=ExtResource("1_w2qqd")]
-projectile_type = ExtResource("2_cpal1")
+projectile_type = ExtResource("2_x37ut")
 move_speed = 120
+attackable_groups = Array[String](["hut"])
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -34)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_leoc4")
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-9.53674e-07, -6.5)
 shape = SubResource("RectangleShape2D_mee00")
 
-[node name="CollisionShape2D" parent="DamageArea" index="0"]
+[node name="HealthBar" parent="." index="2"]
+offset_top = -97.0
+offset_bottom = -79.0
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_e48ad")

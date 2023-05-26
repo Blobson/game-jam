@@ -10,5 +10,3 @@ func _ready():
 	# Устанавливаем позицию камеры по центру картинки заднего плана
 	$Camera.position =  Game.level.get_node("Background").position
 	$BackgroundMusic.play()
-	
-

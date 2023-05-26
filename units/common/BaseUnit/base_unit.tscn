@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://branjax2ejyo0"]
+
+[ext_resource type="Script" path="res://units/common/BaseUnit/base_unit.gd" id="1_mgfb1"]
+[ext_resource type="Texture2D" uid="uid://b8yqyasbiaeyo" path="res://units/common/BaseUnit/hp_bar_back.png" id="1_r6ipq"]
+[ext_resource type="Texture2D" uid="uid://d3n3m1kxytk2r" path="res://units/common/BaseUnit/hp.png" id="2_delke"]
+[ext_resource type="PackedScene" uid="uid://b4qhmxhm08x67" path="res://utils/effects/BloodSplatter/blood_splatter.tscn" id="2_tcq11"]
+
+[node name="BaseUnit" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_mgfb1")
+blood_scene = ExtResource("2_tcq11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -27.0
+offset_top = -87.0
+offset_right = 41.0
+offset_bottom = -69.0
+scale = Vector2(0.8, 0.8)
+value = 60.0
+rounded = true
+texture_under = ExtResource("1_r6ipq")
+texture_progress = ExtResource("2_delke")
+
+[node name="FirePivot" type="Node2D" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+scale = Vector2(1, 0.7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm28di76im4i6"]
+
+[ext_resource type="Script" path="res://utils/effects/Explosion/explosion.gd" id="1_aajev"]
+
+[node name="Explosion" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_aajev")
+
+[node name="ExplosionSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
