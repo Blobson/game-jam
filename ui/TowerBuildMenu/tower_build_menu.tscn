@@ -1134,34 +1134,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_ksq6i")
 }],
 "loop": true,
-"name": &"de",
+"name": &"rotate",
 "speed": 21.0
 }]
 
-[node name="TowerBuildMenu" type="Node2D"]
-z_index = 1
+[node name="TowerBuildMenu" type="Container"]
 scale = Vector2(3.5, 3.5)
 script = ExtResource("1_o84e2")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.42857, 3.71429)
 scale = Vector2(0.431502, 0.431502)
 sprite_frames = SubResource("SpriteFrames_nslvr")
-animation = &"de"
-autoplay = "de"
-frame_progress = 0.490825
+animation = &"rotate"
+autoplay = "rotate"
 
 [node name="RadialContainer" type="Container" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 script = ExtResource("2_s8l34")
 metadata/_edit_use_anchors_ = true
 
 [node name="TouchScreenButton1" type="TouchScreenButton" parent="RadialContainer"]
-position = Vector2(41.1429, -39.4286)
+position = Vector2(-175.429, -166)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("5_hpmch")
 action = "tower_1"
@@ -1172,7 +1167,7 @@ scale = Vector2(0.180749, 0.180749)
 texture = ExtResource("5_wplcc")
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="RadialContainer"]
-position = Vector2(4.85714, 36.5714)
+position = Vector2(-95.7143, -166.571)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("7_0wrdq")
 action = "tower_2"
@@ -1183,7 +1178,7 @@ scale = Vector2(0.188038, 0.188038)
 texture = ExtResource("6_4is7e")
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="RadialContainer"]
-position = Vector2(-71.7143, 36.2857)
+position = Vector2(-13.1428, -168.286)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("9_p7y8e")
 action = "tower_3"
@@ -1199,9 +1194,10 @@ offset_top = -0.0577736
 offset_right = 40.0637
 offset_bottom = 39.9422
 text = "3"
+metadata/_edit_use_anchors_ = true
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="RadialContainer"]
-position = Vector2(-122.571, -39.1429)
+position = Vector2(75.7143, -168.857)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("10_g0byy")
 action = "tower_4"
@@ -1217,3 +1213,4 @@ offset_top = 1.89704
 offset_right = 48.2587
 offset_bottom = 39.994
 text = "4"
+metadata/_edit_use_anchors_ = true

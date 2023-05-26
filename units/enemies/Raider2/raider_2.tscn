@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dp1hwqb1knibc"]
 
-[ext_resource type="PackedScene" uid="uid://cf8107ml24jky" path="res://units/enemies/Enemy/enemy.tscn" id="1_6fjl1"]
+[ext_resource type="PackedScene" uid="uid://byiwo55sivh0m" path="res://units/enemies/Enemy/enemy.tscn" id="1_6fjl1"]
 [ext_resource type="Texture2D" uid="uid://cnmulecf4dmht" path="res://units/enemies/Raider2/raider2.png" id="2_6o20h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sj1lb"]
@@ -9,6 +9,21 @@ height = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6l5i"]
 radius = 81.0
+
+[sub_resource type="Animation" id="Animation_8yuge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_dlgb3"]
 resource_name = "run"
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
-
-[sub_resource type="Animation" id="Animation_8yuge"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aw05h"]
@@ -61,15 +61,15 @@ position = Vector2(1, 76)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sj1lb")
 
-[node name="HpProgressBar" parent="." index="2"]
+[node name="HealthBar" parent="." index="2"]
 offset_top = -113.0
 offset_bottom = -95.0
 
-[node name="CollisionShape2D" parent="DamageArea" index="0"]
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
 rotation = 1.5708
 shape = SubResource("CircleShape2D_c6l5i")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" parent="." index="6"]
 autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_aw05h")

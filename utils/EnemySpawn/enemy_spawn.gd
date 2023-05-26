@@ -20,7 +20,7 @@ class_name EnemySpawn extends Node2D
 ## Время между волнами
 @export var wave_timeout: float = 30.0
 
-## Случайная задержка между спавном юнитов в волне
+## Максимальная случайная задержка между спавном юнитов в волне
 @export var wave_spawn_random: float = 1.0
 
 ## Рельса для спавна врагов
@@ -41,7 +41,7 @@ func _schedule_wave(timeout: float):
 	_next_wave_timeout = timeout
 
 
-func _process(delta):
+func _physics_process(delta):
 	if _next_wave_timeout > 0:
 		_next_wave_timeout -= delta
 		if _next_wave_timeout <= 0:

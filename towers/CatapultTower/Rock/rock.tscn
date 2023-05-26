@@ -1,23 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://o1g75oxx1r3p"]
+[gd_scene load_steps=6 format=3 uid="uid://o1g75oxx1r3p"]
 
 [ext_resource type="PackedScene" uid="uid://bykbdg0k57xdu" path="res://utils/Projectile/projectile.tscn" id="1_dwdpl"]
 [ext_resource type="Texture2D" uid="uid://c2j0viffvs5vx" path="res://towers/CatapultTower/Rock/rocks.png" id="2_3gu3h"]
-[ext_resource type="Script" path="res://towers/CatapultTower/Rock/rock.gd" id="2_sxb6l"]
+[ext_resource type="PackedScene" uid="uid://csud2qnpnfmt6" path="res://towers/CatapultTower/RockExplosion/rock_explosion.tscn" id="2_3r25e"]
 [ext_resource type="AudioStream" uid="uid://vdqn8xy31xek" path="res://towers/CatapultTower/Rock/swoosh.ogg" id="3_wv0po"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlsfw"]
+radius = 29.0172
+
 [node name="Rock" instance=ExtResource("1_dwdpl")]
-script = ExtResource("2_sxb6l")
+damage_radius = 150.0
+explosion_scene = ExtResource("2_3r25e")
 
 [node name="Sprite2D" parent="PathFollow2D" index="0"]
+position = Vector2(0, -20)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_3gu3h")
 hframes = 8
 vframes = 8
 frame = 12
 
-[node name="FlyingSFX" parent="PathFollow2D" index="2"]
+[node name="FlyingSFX" parent="PathFollow2D" index="1"]
 stream = ExtResource("3_wv0po")
 
-[node name="QueueTimer" type="Timer" parent="." index="1"]
-
-[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
+[node name="CollisionShape2D" parent="PathFollow2D/ImpactDetector" index="0"]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_mlsfw")

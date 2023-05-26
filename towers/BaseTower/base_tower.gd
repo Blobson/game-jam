@@ -42,9 +42,10 @@ func _ready():
 
 
 func _draw():
-	var shape = $DamageArea/CollisionShape2D.shape as CircleShape2D
-	draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
-	draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
+	if Game.debug_flags & Game.DRAW_TOWER_ATTACK_ZONES:
+		var shape = $DamageArea/CollisionShape2D.shape as CircleShape2D
+		draw_set_transform_matrix($DamageArea.transform * $DamageArea/CollisionShape2D.transform)
+		draw_arc(Vector2.ZERO, shape.radius, 0, TAU, 100, Color(0, 0.7, 0.7, 0.3), 7, true)
 
 
 func _on_damage_area_body_entered(body):

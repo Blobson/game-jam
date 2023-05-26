@@ -1,38 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf8107ml24jky"]
+[gd_scene load_steps=3 format=3 uid="uid://byiwo55sivh0m"]
 
-[ext_resource type="Script" path="res://units/enemies/Enemy/enemy.gd" id="1_4kk6h"]
-[ext_resource type="Texture2D" uid="uid://b8yqyasbiaeyo" path="res://units/enemies/Enemy/hp_bar_back.png" id="3_ijf76"]
-[ext_resource type="Texture2D" uid="uid://d3n3m1kxytk2r" path="res://units/enemies/Enemy/hp.png" id="3_x88b2"]
+[ext_resource type="PackedScene" uid="uid://branjax2ejyo0" path="res://units/common/BaseUnit/base_unit.tscn" id="1_saw34"]
+[ext_resource type="Script" path="res://units/enemies/Enemy/enemy.gd" id="2_4kk6h"]
 
-[node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_4kk6h")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="HpProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -27.0
-offset_top = -87.0
-offset_right = 41.0
-offset_bottom = -69.0
-scale = Vector2(0.8, 0.8)
-value = 60.0
-rounded = true
-texture_under = ExtResource("3_ijf76")
-texture_progress = ExtResource("3_x88b2")
-
-[node name="DamageArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-scale = Vector2(1, 0.7)
-
-[node name="AttackPivot" type="Node2D" parent="."]
-
-[node name="AttackTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="QueueTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
+[node name="Enemy" instance=ExtResource("1_saw34")]
+script = ExtResource("2_4kk6h")
+gold_reward = 10

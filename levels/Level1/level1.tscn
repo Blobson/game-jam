@@ -1,14 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://qfonkc0ih3dt"]
+[gd_scene load_steps=12 format=3 uid="uid://qfonkc0ih3dt"]
 
-[ext_resource type="Script" path="res://levels/Level1/level1.gd" id="1_l8i4q"]
 [ext_resource type="Script" path="res://utils/EnemyPath/enemy_path.gd" id="2_cmdcf"]
 [ext_resource type="Texture2D" uid="uid://ggvm5y4nxuag" path="res://levels/Level1/level1_background.png" id="2_yxbi5"]
 [ext_resource type="PackedScene" uid="uid://cpffk52pgefad" path="res://utils/TowerBuildLocation/tower_build_location.tscn" id="3_72q32"]
 [ext_resource type="Script" path="res://utils/EnemySpawn/enemy_spawn.gd" id="3_cupwo"]
-[ext_resource type="PackedScene" path="res://units/enemies/GrrEnemy/grr_enemy.tscn" id="4_afbm1"]
-[ext_resource type="PackedScene" uid="uid://sl7dr7laguqt" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
+[ext_resource type="PackedScene" uid="uid://d2ntd11xhyjoa" path="res://units/enemies/Mutant/mutant.tscn" id="6_tsd4y"]
+[ext_resource type="PackedScene" uid="uid://b1mpve7463dp4" path="res://units/enemies/Snake/snake.tscn" id="6_x3r3s"]
 [ext_resource type="PackedScene" uid="uid://bxtlpgasb2f4f" path="res://units/enemies/Archer/archer.tscn" id="7_jlmmf"]
-[ext_resource type="PackedScene" uid="uid://dxa15bibmxb0m" path="res://units/neutral/Hut/hut.tscn" id="8_61hxf"]
+[ext_resource type="PackedScene" uid="uid://dd7ckgskbw04g" path="res://units/neutral/Hut/hut.tscn" id="8_61hxf"]
 [ext_resource type="Texture2D" uid="uid://80uoy8wlmd0e" path="res://levels/Level1/Trees.png" id="9_b1quy"]
 
 [sub_resource type="Curve2D" id="Curve2D_ejcfy"]
@@ -25,11 +24,10 @@ point_count = 8
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_l8i4q")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -10
 position = Vector2(1920, 1230)
 texture = ExtResource("2_yxbi5")
 metadata/_edit_lock_ = true
@@ -43,12 +41,6 @@ width = 100
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_tsd4y")
 first_wave_time = 3.0
-
-[node name="GrrSpawn" type="Node2D" parent="TopWay"]
-script = ExtResource("3_cupwo")
-enemy_type = ExtResource("4_afbm1")
-enemy_count = 2
-first_wave_time = 10.0
 
 [node name="ArcherSpawn" type="Node2D" parent="TopWay"]
 script = ExtResource("3_cupwo")
@@ -68,22 +60,23 @@ enemy_type = ExtResource("6_tsd4y")
 enemy_count = 2
 first_wave_time = 1.0
 
-[node name="GrrSpawn" type="Node2D" parent="BottomWay"]
+[node name="SnakeSpawn" type="Node2D" parent="BottomWay"]
 script = ExtResource("3_cupwo")
-enemy_type = ExtResource("4_afbm1")
-first_wave_time = 12.0
+enemy_type = ExtResource("6_x3r3s")
+first_wave_time = 3.0
+wave_spawn_random = 5.0
 
 [node name="TowerBuildLocation" parent="." instance=ExtResource("3_72q32")]
-position = Vector2(1456, 1593)
+position = Vector2(1457, 1636)
 
 [node name="TowerBuildLocation2" parent="." instance=ExtResource("3_72q32")]
-position = Vector2(2005, 1336)
+position = Vector2(2009, 1376)
 
 [node name="TowerBuildLocation3" parent="." instance=ExtResource("3_72q32")]
-position = Vector2(2741, 1193)
+position = Vector2(2760, 1256)
 
 [node name="Hut" parent="." instance=ExtResource("8_61hxf")]
-position = Vector2(3671, 719)
+position = Vector2(3665, 696)
 
 [node name="Trees" type="Sprite2D" parent="."]
 z_index = 1

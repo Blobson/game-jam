@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7w0teenmsuxj"]
+
+[ext_resource type="PackedScene" uid="uid://bykbdg0k57xdu" path="res://utils/Projectile/projectile.tscn" id="1_0rghv"]
+[ext_resource type="Texture2D" uid="uid://djlitrnkgyi81" path="res://units/enemies/Archer/Arrow/arrow.png" id="2_tteqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3a7h"]
+radius = 6.0
+
+[node name="Arrow" instance=ExtResource("1_0rghv")]
+move_speed = 160.0
+damage_groups = Array[String](["hut"])
+
+[node name="PathFollow2D" parent="." index="0"]
+rotates = true
+
+[node name="Sprite2D" parent="PathFollow2D" index="0"]
+position = Vector2(0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_tteqp")
+vframes = 5
+
+[node name="CollisionShape2D" parent="PathFollow2D/ImpactDetector" index="0"]
+position = Vector2(21, 0)
+shape = SubResource("CircleShape2D_b3a7h")

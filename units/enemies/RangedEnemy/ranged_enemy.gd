@@ -5,8 +5,10 @@ class_name RangedEnemy extends Enemy
 
 
 func attack():
-	var projectile = projectile_type.instantiate() as Projectile
-	projectile.fire($AttackPivot.position, to_local(attack_target.global_position))
-	call_deferred("add_child", projectile)
-	$AttackTimer.start()
-
+	if attack_target != null:
+		var projectile = projectile_type.instantiate() as Projectile
+		projectile.fire($FirePivot.position, to_local(attack_target.global_position))
+		call_deferred("add_child", projectile)
+	super.attack()
+	if attack_target != null:
+		$AttackTimer.start()

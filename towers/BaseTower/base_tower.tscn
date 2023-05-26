@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://5k06pa13u2cv"]
+[gd_scene load_steps=2 format=3 uid="uid://5k06pa13u2cv"]
 
 [ext_resource type="Script" path="res://towers/BaseTower/base_tower.gd" id="1_a7vcd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6d1qo"]
-radius = 700.0
-
-[node name="BaseTower" type="Node2D"]
+[node name="BaseTower" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_a7vcd")
 
-[node name="Tower" type="StaticBody2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tower"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="DamageArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 scale = Vector2(1, 0.5)
-shape = SubResource("CircleShape2D_6d1qo")
+
+[node name="FirePivot" type="Marker2D" parent="."]
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true

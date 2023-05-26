@@ -1,4 +1,4 @@
-extends Node2D
+extends Container
 
 var towers = {
 	"tower_1": preload("res://towers/TowerSaw/tower_saw.tscn"),
@@ -24,18 +24,15 @@ func show_menu(b: TowerBuildLocation):
 
 # Обработка выбора башни в меню постройки
 func put_tower(tower):
-	print_debug("BuildMenu:put_tower(): tower=" + tower)
-	
 	if tower in towers:
 		var twr = towers[tower].instantiate()
 		build_location.put_tower(twr)
 	else:
-		print("Tower '%s' not found".format(tower))
+		print_debug("Tower '%s' not found".format(tower))
 
 
 # Обработка закрытия меню постройки башни без выбора башни
 func close_menu():
-	print_debug("BuildMenu:close_menu()")
 	self.hide()
 	set_process_input(false)
 

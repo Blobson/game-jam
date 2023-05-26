@@ -1,19 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxa15bibmxb0m"]
+[gd_scene load_steps=8 format=3 uid="uid://dd7ckgskbw04g"]
 
 [ext_resource type="Script" path="res://units/neutral/Hut/hut.gd" id="1_3bmu8"]
 [ext_resource type="Texture2D" uid="uid://dfwg6lsgodab0" path="res://units/neutral/Hut/hut_animation_texture.png" id="2_pn2xd"]
-[ext_resource type="AudioStream" uid="uid://d0rc13chm18v5" path="res://units/neutral/Hut/steam hisses - Marker #3.ogg" id="3_jpvd1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0h4yd"]
-radius = 65.0
-height = 278.0
+[ext_resource type="AudioStream" uid="uid://d0rc13chm18v5" path="res://units/neutral/Hut/steam_hisses.ogg" id="3_jpvd1"]
 
 [sub_resource type="Animation" id="Animation_u1lkj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HutBody/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -30,7 +26,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HutBody/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,39 +46,36 @@ _data = {
 radius = 100.0
 height = 368.0
 
-[node name="Hut" type="Node2D"]
+[node name="Hut" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 6
+collision_mask = 0
 script = ExtResource("1_3bmu8")
 
-[node name="HutBody" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="HutBody"]
-position = Vector2(-1, -76.5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.5, -67.8012)
 scale = Vector2(1, 1.00405)
 texture = ExtResource("2_pn2xd")
 hframes = 7
 vframes = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HutBody"]
-position = Vector2(0, 135)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0h4yd")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_m8tio")
 }
 
-[node name="HitBox" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4, 14)
 scale = Vector2(0.7, 0.7)
-polygon = PackedVector2Array(125, 100, 127, 98, 127, 85, 129, 71, 133, 57, 137, 48, 133, 36, 131, 17, 133, 1, 139, -11, 131, -21, 125, -30, 120, -44, 116, -62, 114, -73, 114, -81, 110, -82, 106, -79, 97, -95, 87, -103, 77, -105, 78, -121, 78, -145, 77, -158, 76.4706, -170.588, 79.4118, -176.471, 82.3529, -182.353, 83.3333, -191.176, 83, -198, 79, -202, 71, -205, 72, -209, 17, -256, -50, -208, -50, -168, -67, -165, -84, -159, -100, -152, -109, -145, -111, -139, -111, -134, -108, -131, -107, -128, -104, -124, -103, -122, -101, -81, -99, -66, -99, -63, -107, -55, -113, -43, -116, -30, -116, -26, -122, -25, -122, -17, -120, -8, -122, -3, -128, 8, -133, 22, -134, 36, -133, 52, -130, 66, -127, 76, -125, 79, -129, 82, -129, 103, -127, 105, -123, 118, -115, 128, -105, 139, -95, 144, -86, 148, -70, 151, -47, 153, -27, 150, -10, 144, 3, 136, 9, 132, 36, 123, 85, 103, 111.765, 99.0196)
+polygon = PackedVector2Array(168.571, 212.857, 150, 135.714, 132.857, -38.5714, 82.8571, -194.286, 70, -264.286, 22.8571, -310, -28.5714, -270, -47.1429, -212.857, -105.714, -192.857, -117.143, -47.1428, -150, 21.4286, -140, 150, -124.286, 248.571, 41.4286, 258.571)
 
 [node name="MeleeAttackArea" type="Area2D" parent="."]
+position = Vector2(1.5, 158.199)
+collision_layer = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttackArea"]
-position = Vector2(0, 150)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6soaa")
 debug_color = Color(0.92549, 0.180392, 0, 0.419608)
@@ -91,10 +84,3 @@ debug_color = Color(0.92549, 0.180392, 0, 0.419608)
 stream = ExtResource("3_jpvd1")
 volume_db = -4.0
 bus = &"SFX"
-
-[node name="QueueTimer" type="Timer" parent="."]
-
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_entered" from="MeleeAttackArea" to="." method="_on_melee_attack_area_body_entered"]
-[connection signal="body_exited" from="MeleeAttackArea" to="." method="_on_melee_attack_area_body_exited"]
-[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]

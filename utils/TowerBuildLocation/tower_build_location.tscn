@@ -10,7 +10,7 @@ size = Vector2(180, 200)
 script = ExtResource("1_vd7p6")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(-100, -114)
+position = Vector2(-100, -151)
 scale = Vector2(0.99422, 0.992)
 texture_normal = ExtResource("2_020g5")
 shape = SubResource("RectangleShape2D_mcojj")

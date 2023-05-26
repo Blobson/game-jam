@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://52llhe7trspm"]
+[gd_scene load_steps=27 format=3 uid="uid://52llhe7trspm"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_u1541"]
 [ext_resource type="Script" path="res://towers/CatapultTower/catapult_tower.gd" id="2_34iv6"]
@@ -157,6 +157,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibj6v"]
+radius = 122.066
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p8f7o"]
 radius = 500.0
 
@@ -164,25 +167,26 @@ radius = 500.0
 script = ExtResource("2_34iv6")
 attack_interval = 4.0
 
-[node name="AnimatedSprite2D" parent="Tower" index="0"]
-position = Vector2(4, -33)
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(2.38419e-07, -73)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_x8byb")
 animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-13, 18)
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_ibj6v")
+
+[node name="DamageArea" parent="." index="2"]
+visible = false
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_p8f7o")
 
-[node name="AttackTimer" parent="." index="2"]
+[node name="FirePivot" parent="." index="3"]
+position = Vector2(-41, -127)
+
+[node name="AttackTimer" parent="." index="4"]
 wait_time = 4.0
-
-[node name="PreloadTimer" type="Timer" parent="." index="3"]
-wait_time = 0.5
-one_shot = true
-
-[node name="FirePivot" type="Node2D" parent="." index="4"]
-position = Vector2(-24, -68)
-
-[connection signal="animation_finished" from="Tower/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="PreloadTimer" to="." method="_on_preload_timer_timeout"]

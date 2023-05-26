@@ -16,9 +16,10 @@ func _init(enemy_path: EnemyPath):
 
 
 ## Метод следования по EnemyPath
-func follow_path(current_position: Vector2, _speed: float, _time_delta: float):
+func follow_path(current_position: Vector2, speed: float) -> Vector2:
 	var offset_from_start = path.curve.get_closest_offset(current_position)
 	_transform = path.curve.sample_baked_with_rotation(offset_from_start)
+	return get_direction() * speed
 
 
 ## Проверка достижения конца пути
@@ -33,5 +34,5 @@ func get_position():
 
 
 ## Получить текущее направление движения
-func get_direction():
+func get_direction() -> Vector2:
 	return Vector2.UP.rotated(_transform.get_rotation())

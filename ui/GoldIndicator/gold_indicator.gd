@@ -12,7 +12,7 @@ func _ready():
 	$HBoxContainer/GoldCounter.text = str(Game.gold)
 
 
-func on_gold_changed(old: int, new: int):
+func on_gold_changed(_old: int, new: int):
 	if tween_indicator and tween_indicator.is_valid():
 		tween_indicator.kill()
 	#Создаем tween, задаем параметры анимирования
