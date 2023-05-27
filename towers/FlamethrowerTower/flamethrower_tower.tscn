@@ -304,6 +304,7 @@ height = 1204.0
 
 [node name="FlamethrowerTower" instance=ExtResource("1_qhy7a")]
 script = ExtResource("2_mnf4m")
+start_attack_power = 20
 
 [node name="AnimatedSprite2D" parent="Tower" index="0"]
 position = Vector2(-17, -76)
@@ -337,7 +338,6 @@ rotation = 1.31772
 scale = Vector2(0.532636, 0.671875)
 sprite_frames = SubResource("SpriteFrames_jdhsw")
 animation = &"Work"
-autoplay = "Work"
 
 [node name="FlameDamageArea" type="Area2D" parent="Flame" index="1"]
 

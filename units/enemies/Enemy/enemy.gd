@@ -14,7 +14,7 @@ class_name Enemy extends CharacterBody2D
 
 var path_follower: EnemyPathFollower
 var targets_in_range = []
-enum EnemyState {WALKING, ATTACKING, DIEING, DEAD}
+enum EnemyState {WALKING, ATTACKING, BURNING, DIEING, DEAD}
 var state = EnemyState.WALKING
 var attack_target = null
 
@@ -122,5 +122,14 @@ func attack():
 	pass
 
 
-func burning():
-	pass	
+func burning(damage):
+	var burn_timer = Timer.new()
+	burn_timer.one_shot = true
+	var burn_damage_timer = Timer.new()
+	burn_damage_timer.one_shot = true
+	burn_timer.start(10)
+	while burn_timer.is_stopped():
+		burn_damage_timer.start(2)
+		if burn_damage_timer.is_stopped():
+			take_damage(damage)
+		

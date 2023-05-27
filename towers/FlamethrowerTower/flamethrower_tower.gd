@@ -1,6 +1,6 @@
 extends "res://towers/BaseTower/base_tower.gd"
 
-
+@export var start_attack_power: int = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +19,7 @@ func _on_flame_damage_area_body_entered(body):
 func _on_damage_area_body_entered(body):
 	if body.is_in_group("enemies"):
 		_enemies_in_range.append(body)
-		$Flame/AnimatedSprite2D.animation = "Work"
+		$Flame/AnimatedSprite2D.play("Work")
 
 
 func _on_damage_area_body_exited(body):
@@ -30,4 +30,5 @@ func _on_damage_area_body_exited(body):
 
 
 func attack(body):
-	pass
+	body.take_damage(start_attack_power)
+	#body.burning(attack_power)
