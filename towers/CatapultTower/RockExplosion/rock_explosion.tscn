@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvm8lb2vvrqwl"]
 
 [ext_resource type="PackedScene" uid="uid://br244knxglscr" path="res://utils/Explosion/explosion.tscn" id="1_inrad"]
-[ext_resource type="Texture2D" uid="uid://dxro605gycoyi" path="res://towers/CatapultTower/RockExplosion/explosion.png" id="2_uda8j"]
+[ext_resource type="Texture2D" uid="uid://cx7ak7g4xwv7a" path="res://towers/CatapultTower/RockExplosion/explosion.png" id="2_uda8j"]
 [ext_resource type="AudioStream" uid="uid://brc3l8qrl4vnp" path="res://towers/CatapultTower/RockExplosion/rock_explosion.ogg" id="3_m2xuy"]
 
 [node name="RockExplosion" instance=ExtResource("1_inrad")]
 
 [node name="ExplosionSprite" parent="." index="0"]
-scale = Vector2(2, 2)
+position = Vector2(5, -28)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_uda8j")
-hframes = 4
-vframes = 4
+hframes = 10
 
 [node name="ExplosionSFX" parent="." index="1"]
+visible = false
 stream = ExtResource("3_m2xuy")
 bus = &"SFX"
