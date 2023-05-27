@@ -120,3 +120,7 @@ func select_next_target():
 
 func attack():
 	pass
+
+
+func burning():
+	pass	

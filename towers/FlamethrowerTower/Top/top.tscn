@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b273jh1frbo2x"]
+
+[ext_resource type="Texture2D" uid="uid://cpjk4dfs4nnyp" path="res://towers/FlamethrowerTower/Top/flamethrower-top.png" id="1_nyrq4"]
+
+[node name="Top" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-92, 6)
+texture = ExtResource("1_nyrq4")
