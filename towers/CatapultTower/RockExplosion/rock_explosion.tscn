@@ -1,16 +1,97 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvm8lb2vvrqwl"]
+[gd_scene load_steps=15 format=3 uid="uid://dvm8lb2vvrqwl"]
 
 [ext_resource type="PackedScene" uid="uid://br244knxglscr" path="res://utils/Explosion/explosion.tscn" id="1_inrad"]
-[ext_resource type="Texture2D" uid="uid://dxro605gycoyi" path="res://towers/CatapultTower/RockExplosion/explosion.png" id="2_uda8j"]
+[ext_resource type="Texture2D" uid="uid://bi2gndp12ebh0" path="res://towers/CatapultTower/RockExplosion/explosion.png" id="2_uda8j"]
 [ext_resource type="AudioStream" uid="uid://brc3l8qrl4vnp" path="res://towers/CatapultTower/RockExplosion/rock_explosion.ogg" id="3_m2xuy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jd78"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8efxg"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(800, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgssc"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(1600, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foaag"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(2400, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhdfa"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(3200, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c10l"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(4000, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go6lb"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(4800, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4bgg"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(5600, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgmpk"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(6400, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bobqj"]
+atlas = ExtResource("2_uda8j")
+region = Rect2(7200, 0, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vf85w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jd78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8efxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgssc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foaag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhdfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c10l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go6lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4bgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgmpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bobqj")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 13.0
+}]
 
 [node name="RockExplosion" instance=ExtResource("1_inrad")]
 
 [node name="ExplosionSprite" parent="." index="0"]
-scale = Vector2(2, 2)
-texture = ExtResource("2_uda8j")
-hframes = 4
-vframes = 4
+modulate = Color(0.996078, 0.858824, 0.439216, 1)
+position = Vector2(0, -17)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_vf85w")
+animation = &"Explosion"
+frame = 9
+frame_progress = 1.0
 
 [node name="ExplosionSFX" parent="." index="1"]
 stream = ExtResource("3_m2xuy")
