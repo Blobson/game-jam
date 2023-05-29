@@ -78,7 +78,7 @@ animations = [{
 script = ExtResource("1_10ut2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3tg72")
 animation = &"Puddle"
 
