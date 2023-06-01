@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://ui/TowerBuildMenu/radial_container.gd" id="2_s8l34"]
 [ext_resource type="Texture2D" uid="uid://b4pca14kgupmn" path="res://ui/TowerBuildMenu/btn_icon1.png" id="5_hpmch"]
 [ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://ui/TowerBuildMenu/tower_icons/tower_saw_icon.png" id="5_wplcc"]
-[ext_resource type="Texture2D" uid="uid://dyn3esshjs5ta" path="res://ui/TowerBuildMenu/tower_icons/catapult_tower_icon.png" id="6_4is7e"]
+[ext_resource type="Texture2D" uid="uid://dtbyjue6srap7" path="res://ui/TowerBuildMenu/tower_icons/catapult_tower_icon.png" id="6_4is7e"]
 [ext_resource type="Texture2D" uid="uid://brg7ncsm1p7nh" path="res://ui/TowerBuildMenu/btn_icon2.png" id="7_0wrdq"]
 [ext_resource type="Texture2D" uid="uid://dg6arwacrtk6x" path="res://ui/TowerBuildMenu/btn_icon3.png" id="9_p7y8e"]
 [ext_resource type="Texture2D" uid="uid://dj2em2w0ekny6" path="res://ui/TowerBuildMenu/btn_icon4.png" id="10_g0byy"]
@@ -1178,8 +1178,8 @@ texture_normal = ExtResource("7_0wrdq")
 action = "tower_2"
 
 [node name="TowerIcon" type="Sprite2D" parent="RadialContainer/TouchScreenButton2"]
-position = Vector2(71.746, 69.2063)
-scale = Vector2(0.0320753, 0.0320753)
+position = Vector2(73.6508, 69.8413)
+scale = Vector2(0.188038, 0.188038)
 texture = ExtResource("6_4is7e")
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="RadialContainer"]
