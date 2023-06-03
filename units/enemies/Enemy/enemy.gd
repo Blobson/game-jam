@@ -8,13 +8,17 @@ class_name Enemy extends CharacterBody2D
 @export var attack_power: int = 10
 ## Золото за убийство
 @export var gold_reward: int = 10
+## Рисование пути
+@export var drawing_path: bool = false
 
 @onready var hp_progress = $HpProgressBar
 @onready var sprite = $Sprite2D
 
+@onready var dying_scene = preload("res://utils/Dying/pull_of_blood.tscn")
+
 var path_follower: EnemyPathFollower
 var targets_in_range = []
-enum EnemyState {WALKING, ATTACKING, DIEING, DEAD}
+enum EnemyState {WALKING, ATTACKING, DYING, DEAD}
 var state = EnemyState.WALKING
 var attack_target = null
 
@@ -66,7 +70,11 @@ func take_damage(damage_count):
 
 ## Смерть юнита
 func die():
-	queue_free()
+	state = EnemyState.DYING
+	var dying = dying_scene.instantiate()
+	$Sprite2D.replace_by(dying)
+	$HpProgressBar.visible = false
+	$QueueTimer.start(3)
 	Game.gold += gold_reward
 	
 
@@ -80,12 +88,13 @@ func _process(delta: float):
 			
 
 func _draw():
-	draw_line(Vector2.ZERO, move_direction * move_speed, Color.DARK_RED)
+	if drawing_path:
+		draw_line(Vector2.ZERO, move_direction * move_speed, Color.DARK_RED)
 
 
 ## Обнаружение тела в области
 func _on_damage_area_body_entered(body):
-	if body.name == 'HutBody' and state not in [EnemyState.DEAD, EnemyState.DIEING]:
+	if body.name == 'HutBody' and state not in [EnemyState.DEAD, EnemyState.DYING]:
 		targets_in_range.append(body)
 		if state not in [EnemyState.ATTACKING]:
 			select_next_target()
@@ -120,3 +129,7 @@ func select_next_target():
 
 func attack():
 	pass
+
+
+func _on_queue_timer_timeout():
+	queue_free()
