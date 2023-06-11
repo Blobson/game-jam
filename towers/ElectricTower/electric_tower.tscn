@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://cl0e3h7i7c3j0"]
 
 [ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_ipy86"]
 [ext_resource type="Script" path="res://towers/ElectricTower/electric_tower.gd" id="2_rhu6t"]

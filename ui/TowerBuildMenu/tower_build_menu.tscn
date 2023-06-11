@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://7lweogxow4e1"]
+[gd_scene load_steps=172 format=3 uid="uid://7lweogxow4e1"]
 
 [ext_resource type="Script" path="res://ui/TowerBuildMenu/tower_build_menu.gd" id="1_o84e2"]
 [ext_resource type="Texture2D" uid="uid://cwcpjru6i5i6t" path="res://ui/TowerBuildMenu/gear_animation.png" id="2_lod88"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://t6csr8nc8am2" path="res://ui/TowerBuildMenu/tower_icons/tower_saw_icon.png" id="5_wplcc"]
 [ext_resource type="Texture2D" uid="uid://dtbyjue6srap7" path="res://ui/TowerBuildMenu/tower_icons/catapult_tower_icon.png" id="6_4is7e"]
 [ext_resource type="Texture2D" uid="uid://brg7ncsm1p7nh" path="res://ui/TowerBuildMenu/btn_icon2.png" id="7_0wrdq"]
+[ext_resource type="Texture2D" uid="uid://c147rkbd1iwhl" path="res://ui/TowerBuildMenu/tower_icons/electric_tower_icon.png" id="9_4cnfh"]
 [ext_resource type="Texture2D" uid="uid://dg6arwacrtk6x" path="res://ui/TowerBuildMenu/btn_icon3.png" id="9_p7y8e"]
 [ext_resource type="Texture2D" uid="uid://dj2em2w0ekny6" path="res://ui/TowerBuildMenu/btn_icon4.png" id="10_g0byy"]
 
@@ -1183,18 +1184,10 @@ scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("9_p7y8e")
 action = "tower_3"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RadialContainer/TouchScreenButton3"]
-anchors_preset = -1
-anchor_left = 0.447
-anchor_top = 0.36
-anchor_right = 0.447
-anchor_bottom = 0.36
-offset_left = 0.0636673
-offset_top = -0.0577736
-offset_right = 40.0637
-offset_bottom = 39.9422
-text = "3"
-metadata/_edit_use_anchors_ = true
+[node name="TowerIcon" type="Sprite2D" parent="RadialContainer/TouchScreenButton3"]
+position = Vector2(72.3808, 69.842)
+scale = Vector2(0.214633, 0.150704)
+texture = ExtResource("9_4cnfh")
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="RadialContainer"]
 position = Vector2(75.7143, -168.857)

@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://f4y3eikkq0q1"]
+[gd_scene load_steps=5 format=3 uid="uid://f4y3eikkq0q1"]
 
-[node name="electric_line" type="Node2D"]
+[ext_resource type="Script" path="res://towers/ElectricTower/ElectricLine/electric_line.gd" id="1_1reut"]
+[ext_resource type="Texture2D" uid="uid://l7uoyolglbd" path="res://towers/ElectricTower/ElectricLine/sphere strike.png" id="1_46m8d"]
+[ext_resource type="Texture2D" uid="uid://bio8tllr6sti0" path="res://towers/ElectricTower/ElectricLine/elec strike(low).bmp" id="2_4u25y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8luhj"]
+blend_mode = 1
+
+[node name="ElectricLaser" type="Node2D"]
+script = ExtResource("1_1reut")
+
+[node name="BeginElectricLine" type="Sprite2D" parent="."]
+texture = ExtResource("1_46m8d")
+hframes = 6
+
+[node name="LaserLine" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_8luhj")
+position = Vector2(0, 2)
+scale = Vector2(0.0680272, 0.297872)
+texture = ExtResource("2_4u25y")
+centered = false
+offset = Vector2(0, -47)
+region_enabled = true
+region_rect = Rect2(0.25, 0, 100, 94)
+
+[node name="EndLaserLine" type="Marker2D" parent="."]
+position = Vector2(100, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
