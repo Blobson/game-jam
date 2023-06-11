@@ -230,23 +230,23 @@ radius = 400.0
 script = ExtResource("2_wgurc")
 attack_distance = 400.0
 
-[node name="AnimatedSprite2D" parent="Tower" index="0"]
+[node name="Tower@AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_fvuf2")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower" index="1"]
+[node name="Tower@CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_emrh1")
+
+[node name="TowerSawSFX" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_copfv")
+bus = &"SFX"
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 scale = Vector2(1, 0.7)
 shape = SubResource("CircleShape2D_jcdqo")
 
-[node name="AttackTimer" parent="." index="2"]
+[node name="AttackTimer" parent="." index="7"]
 wait_time = 5.0
-
-[node name="TowerSawSFX" type="AudioStreamPlayer2D" parent="." index="3"]
-stream = ExtResource("4_copfv")
-bus = &"SFX"
