@@ -13,7 +13,7 @@ extends Node2D
 @export var max_lenght = 2000
 
 ## Сцена взрыва снаряда
-@export var explosion_scene: PackedScene
+##@export var explosion_scene: PackedScene
 
 
 func ready():
@@ -40,10 +40,10 @@ func _on_impact(body: Node2D):
 		apply_area_damage()
 	elif is_suitable_target(body):
 		apply_unit_damage(body)
-	if explosion_scene:
-		var explosion = explosion_scene.instantiate()
-		explosion.position = $PathFollow2D.position
-		NodeUtils.replace_node(self, explosion)
+	#if explosion_scene:
+	#	var explosion = explosion_scene.instantiate()
+	#	explosion.position = $PathFollow2D.position
+	#	NodeUtils.replace_node(self, explosion)
 	else:
 		queue_free()
 
