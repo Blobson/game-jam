@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://f4y3eikkq0q1"]
+[gd_scene load_steps=6 format=3 uid="uid://f4y3eikkq0q1"]
 
 [ext_resource type="Script" path="res://towers/ElectricTower/ElectricLine/electric_line.gd" id="1_1reut"]
 [ext_resource type="Texture2D" uid="uid://l7uoyolglbd" path="res://towers/ElectricTower/ElectricLine/sphere strike.png" id="1_46m8d"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8luhj"]
 blend_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jcwq"]
 
 [node name="ElectricLaser" type="Node2D"]
 script = ExtResource("1_1reut")
@@ -22,10 +24,15 @@ texture = ExtResource("2_4u25y")
 centered = false
 offset = Vector2(0, -47)
 region_enabled = true
-region_rect = Rect2(0.25, 0, 100, 94)
+region_rect = Rect2(0, 0, 1400, 95)
 
 [node name="EndLaserLine" type="Marker2D" parent="."]
 position = Vector2(100, 0)
+
+[node name="ImpactDetector" type="Area2D" parent="EndLaserLine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLaserLine/ImpactDetector"]
+shape = SubResource("CircleShape2D_7jcwq")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(100, 0)

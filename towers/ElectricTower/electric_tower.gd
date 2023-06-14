@@ -14,7 +14,7 @@ func attack(enemies_in_range: Array[Enemy]):
 	var closest_enemy = find_closest_enemy(enemies_in_range)
 	# прицеливаемся по врагу и стреляем
 	if closest_enemy:
-		fire(closest_enemy.global_position, closest_enemy.velocity)
+		fire(closest_enemy.global_position)
 	super.attack(enemies_in_range)
 
 
@@ -32,19 +32,13 @@ func find_closest_enemy(enemies_in_range: Array[Enemy]) -> Enemy:
 	return closest_enemy
 
 ## Стрельба по вражеским юнитам
-func fire(target: Vector2, target_velocity: Vector2 = Vector2.ZERO):
+func fire(target: Vector2):
 	print('PEW')
 	var electic_line = electric_line_prefab.instantiate()
-	electic_line.position = $FirePivot.global_position
-	get_parent().add_child(electic_line)
-	$RayCast2D.cast_to = max_cast_to
-	if $RayCast2D.is_colliding():
-		$EndLaserLine.global_position = $RayCast2D.get_collision_point()
-	else:
-		$EndLaserLine.global_position = $RayCast2D.cast_to
-		$LaserLine.rotation = $RayCast2D.cast_to.angle()
-		$LaserLine.region_rect.end.x = $EndLaserLine.position.lenght()
-	#target = to_local(target)
+	#electic_line.fire($FirePivot.position, to_local(target))
+	call_deferred('add_child', electic_line)
+#	
+	
 	
 	#$AnimatedSprite2D.play("Work")
 	
