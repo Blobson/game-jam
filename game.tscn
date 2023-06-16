@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://defmylsgqlcgm"]
+[gd_scene load_steps=19 format=3 uid="uid://defmylsgqlcgm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
 [ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
@@ -6,8 +6,61 @@
 [ext_resource type="PackedScene" uid="uid://7lweogxow4e1" path="res://ui/TowerBuildMenu/tower_build_menu.tscn" id="4_k8kam"]
 [ext_resource type="PackedScene" uid="uid://cj2ityktnd8tv" path="res://ui/hut_ability_buttons/JumpAttackAbilityButton/jump_attack_ability_button.tscn" id="5_d5dkq"]
 [ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
+[ext_resource type="Texture2D" uid="uid://co6imvfw8f8vc" path="res://ui/BottomUI/BottomLine.png" id="6_iw7bo"]
 [ext_resource type="PackedScene" uid="uid://bp5yn4ox4jqwy" path="res://ui/HutHealthIndicator/hut_health_indicator.tscn" id="7_vo1kw"]
 [ext_resource type="PackedScene" uid="uid://dlmwo465gnmnf" path="res://ui/GoldIndicator/gold_indicator.tscn" id="8_4uu1s"]
+[ext_resource type="Texture2D" uid="uid://3ekcqp0ount3" path="res://ui/BottomUI/AbilityContainer.png" id="8_jbpbr"]
+[ext_resource type="Texture2D" uid="uid://do2ep1ml0o32q" path="res://ui/BottomUI/AbilityContainerTransp.png" id="8_wanpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33w85"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(0, 0, 299, 301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xosew"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(299, 0, 299, 301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krug4"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(598, 0, 299, 301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buydb"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(897, 0, 299, 301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op8rf"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(1196, 0, 299, 301)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gh4c"]
+atlas = ExtResource("8_wanpt")
+region = Rect2(1495, 0, 299, 301)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxs4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33w85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xosew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krug4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op8rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gh4c")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 11.0
+}]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_ittro")
@@ -24,40 +77,114 @@ follow_viewport_enabled = true
 [node name="TowerBuildMenu" parent="ui" instance=ExtResource("4_k8kam")]
 visible = false
 
-[node name="HutAbiltities" type="HBoxContainer" parent="ui"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 79.0
-offset_top = -315.0
-offset_right = 334.0
-offset_bottom = -188.0
+[node name="GoldIndicator" parent="ui" instance=ExtResource("8_4uu1s")]
+z_index = 99
+anchors_preset = -1
+offset_left = 3324.0
+offset_top = -3.0
+offset_right = 3324.0
+offset_bottom = -3.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+
+[node name="BottomUI" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1892.0
+offset_right = 3840.0
+offset_bottom = 2160.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="BottomLine" type="TextureRect" parent="ui/BottomUI"]
+z_index = 98
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -7.062
+anchor_bottom = -7.062
+offset_left = -24.0
+offset_top = 2005.62
+offset_right = 3920.0
+offset_bottom = 2118.62
+texture = ExtResource("6_iw7bo")
+
+[node name="HutHealthIndicator" parent="ui/BottomUI" instance=ExtResource("7_vo1kw")]
+z_index = 99
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -7.059
+anchor_bottom = -7.059
+offset_left = 3275.0
+offset_top = 1973.81
+offset_right = 3275.0
+offset_bottom = 1973.81
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HutAbiltities" type="HBoxContainer" parent="ui/BottomUI"]
+z_index = 99
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -7.063
+anchor_bottom = -7.063
+offset_left = 359.0
+offset_top = 1848.89
+offset_right = 649.0
+offset_bottom = 2002.89
 grow_vertical = 0
 scale = Vector2(2, 2)
 
-[node name="ui@HutAbilities@RepairAbilityBotton" parent="ui/HutAbiltities" instance=ExtResource("6_afhe7")]
+[node name="AbilityPlaceUp" type="AnimatedSprite2D" parent="ui/BottomUI/HutAbiltities"]
+z_index = 99
+position = Vector2(53, 77)
+scale = Vector2(0.52592, 0.52592)
+sprite_frames = SubResource("SpriteFrames_lxs4m")
+animation = &"Open"
+autoplay = "Open"
+frame = 5
+frame_progress = 1.0
+
+[node name="AbilityPlaceBottom" type="Sprite2D" parent="ui/BottomUI/HutAbiltities"]
+z_index = 97
+position = Vector2(53, 77)
+scale = Vector2(0.52592, 0.52592)
+texture = ExtResource("8_jbpbr")
+hframes = 6
+frame = 5
+
+[node name="uiHutAbilitiesRepairAbilityBotton" parent="ui/BottomUI/HutAbiltities" instance=ExtResource("6_afhe7")]
+z_index = 98
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="ui@HutAbilities@JumpAttackAbilityBotton" parent="ui/HutAbiltities" instance=ExtResource("5_d5dkq")]
+[node name="MarginContainer" type="MarginContainer" parent="ui/BottomUI/HutAbiltities"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="AbilityPlaceUp2" type="AnimatedSprite2D" parent="ui/BottomUI/HutAbiltities"]
+z_index = 99
+position = Vector2(232, 76.5)
+scale = Vector2(0.52592, 0.52592)
+sprite_frames = SubResource("SpriteFrames_lxs4m")
+animation = &"Open"
+autoplay = "Open"
+frame = 5
+frame_progress = 1.0
+
+[node name="AbilityPlaceBottom2" type="Sprite2D" parent="ui/BottomUI/HutAbiltities"]
+z_index = 97
+position = Vector2(232, 77)
+scale = Vector2(0.52592, 0.52592)
+texture = ExtResource("8_jbpbr")
+hframes = 6
+frame = 5
+
+[node name="uiHutAbilitiesJumpAttackAbilityBotton" parent="ui/BottomUI/HutAbiltities" instance=ExtResource("5_d5dkq")]
+z_index = 98
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-
-[node name="GoldIndicator" parent="ui" instance=ExtResource("8_4uu1s")]
-offset_left = 3507.0
-offset_top = 48.0
-offset_right = 3507.0
-offset_bottom = 48.0
-
-[node name="HutHealthIndicator" parent="ui" instance=ExtResource("7_vo1kw")]
-offset_left = 3597.0
-offset_top = 1917.0
-offset_right = 3597.0
-offset_bottom = 1917.0
-scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 8
-size_flags_vertical = 8
 
 [node name="level" type="Node" parent="."]
