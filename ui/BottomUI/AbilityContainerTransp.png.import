@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7abpc8mb7iwx"
-path="res://.godot/imported/hut_health_indicator_flame_effect.png-29fb6e7f85ddc737066a47dc4cec70fa.ctex"
+uid="uid://do2ep1ml0o32q"
+path="res://.godot/imported/AbilityContainerTransp.png-292c1f50473ae58cb8cec0246b976b10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/HutHealthIndicator/hut_health_indicator_flame_effect.png"
-dest_files=["res://.godot/imported/hut_health_indicator_flame_effect.png-29fb6e7f85ddc737066a47dc4cec70fa.ctex"]
+source_file="res://ui/BottomUI/AbilityContainerTransp.png"
+dest_files=["res://.godot/imported/AbilityContainerTransp.png-292c1f50473ae58cb8cec0246b976b10.ctex"]
 
 [params]
 

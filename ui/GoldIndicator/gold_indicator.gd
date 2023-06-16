@@ -9,7 +9,7 @@ func _ready():
 	#Подсоединяем сигнал change_value
 	Game.gold_changed.connect(on_gold_changed)
 	#Обновляем индикатор, в начале уровня
-	$HBoxContainer/GoldCounter.text = str(Game.gold)
+	$GoldCounter.text = str(Game.gold)
 
 
 func on_gold_changed(_old: int, new: int):
@@ -20,10 +20,10 @@ func on_gold_changed(_old: int, new: int):
 	.set_trans(Tween.TRANS_QUAD) \
 	.set_ease(Tween.EASE_IN_OUT)
 	# Запускаем tween, передаем значение в animate_counter
-	var from = int($HBoxContainer/GoldCounter.text)
+	var from = int($GoldCounter.text)
 	tween_indicator.tween_method(animate_counter, from, new, tween_duration)
 
 
 func animate_counter(gold_value: int):
 	# Отображаем на индикаторе
-	$HBoxContainer/GoldCounter.text = str(gold_value)
+	$GoldCounter.text = str(gold_value)

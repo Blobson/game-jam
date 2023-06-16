@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c27c0dc40qui5"
-path="res://.godot/imported/hut_health_indicator_base.png-0002ae36be291f746d882c19e77ac584.ctex"
+uid="uid://3ekcqp0ount3"
+path="res://.godot/imported/AbilityContainer.png-0c676a8103854219574ab13e72496771.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/HutHealthIndicator/hut_health_indicator_base.png"
-dest_files=["res://.godot/imported/hut_health_indicator_base.png-0002ae36be291f746d882c19e77ac584.ctex"]
+source_file="res://ui/BottomUI/AbilityContainer.png"
+dest_files=["res://.godot/imported/AbilityContainer.png-0c676a8103854219574ab13e72496771.ctex"]
 
 [params]
 
