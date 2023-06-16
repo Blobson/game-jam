@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://defmylsgqlcgm"]
+[gd_scene load_steps=11 format=3 uid="uid://defmylsgqlcgm"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_ittro"]
 [ext_resource type="PackedScene" uid="uid://d2m7yoa43hprx" path="res://utils/Camera/camera.tscn" id="3_5nf3m"]
@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://8scil65ms5nn" path="res://ui/hut_ability_buttons/RepairAbilityButton/repair_ability_button.tscn" id="6_afhe7"]
 [ext_resource type="PackedScene" uid="uid://bp5yn4ox4jqwy" path="res://ui/HutHealthIndicator/hut_health_indicator.tscn" id="7_vo1kw"]
 [ext_resource type="PackedScene" uid="uid://dlmwo465gnmnf" path="res://ui/GoldIndicator/gold_indicator.tscn" id="8_4uu1s"]
+[ext_resource type="PackedScene" uid="uid://cfefvcc5wseh6" path="res://ui/DeadScene/dead_scrine.tscn" id="9_jc0vq"]
+[ext_resource type="Script" path="res://ui/DeadScene/dead_scrine.gd" id="10_xkn1e"]
 
 [node name="game" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_ittro")
 
 [node name="Camera" parent="." instance=ExtResource("3_5nf3m")]
@@ -61,3 +64,19 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="level" type="Node" parent="."]
+process_mode = 1
+
+[node name="DeadScrine" parent="." instance=ExtResource("9_jc0vq")]
+process_mode = 3
+script = ExtResource("10_xkn1e")
+
+[node name="ColorRect" parent="DeadScrine" index="0"]
+color = Color(0, 0, 0, 0.901961)
+
+[node name="GameOverMenuTimer" type="Timer" parent="DeadScrine"]
+
+[connection signal="pressed" from="DeadScrine/ColorRect/VBoxContainer/TryAgainButton" to="DeadScrine" method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="DeadScrine/ColorRect/VBoxContainer/MainMenuButton" to="DeadScrine" method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="DeadScrine/GameOverMenuTimer" to="DeadScrine" method="_on_game_over_menu_timer_timeout"]
+
+[editable path="DeadScrine"]

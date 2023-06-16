@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfefvcc5wseh6"]
+
+[ext_resource type="Theme" uid="uid://calxn8k7fq1fa" path="res://ui/base_theme.tres" id="1_ttye6"]
+
+[node name="DeadScrine" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.647059)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -15.5
+offset_right = 112.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverText" type="RichTextLabel" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(650, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_ttye6")
+theme_override_colors/default_color = Color(1, 0.235294, 0.129412, 1)
+text = "Game over"
+scroll_active = false
+autowrap_mode = 2
+tab_size = 6
+
+[node name="TryAgainButton" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = ExtResource("1_ttye6")
+text = "Try again"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = ExtResource("1_ttye6")
+text = "Main menu"
