@@ -2,7 +2,9 @@ extends Container
 
 var towers = {
 	"tower_1": preload("res://towers/TowerSaw/tower_saw.tscn"),
-	"tower_2": preload("res://towers/CatapultTower/catapult_tower.tscn")
+	"tower_2": preload("res://towers/CatapultTower/catapult_tower.tscn"),
+	"tower_3": preload("res://towers/CargoTower/cargo_tower.tscn")
+	
 }
 
 var build_location: TowerBuildLocation = null

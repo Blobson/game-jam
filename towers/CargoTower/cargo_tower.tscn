@@ -1,0 +1,233 @@
+[gd_scene load_steps=14 format=3 uid="uid://bwcmnyemiwjui"]
+
+[ext_resource type="PackedScene" uid="uid://5k06pa13u2cv" path="res://towers/BaseTower/base_tower.tscn" id="1_8difa"]
+[ext_resource type="Script" path="res://towers/CargoTower/cargo_tower.gd" id="2_c8vc2"]
+[ext_resource type="Texture2D" uid="uid://bacmmbki6efbo" path="res://towers/CargoTower/base.png" id="2_rybau"]
+[ext_resource type="Texture2D" uid="uid://ct5x830i61te3" path="res://towers/CargoTower/cable.png" id="3_jc8fu"]
+[ext_resource type="PackedScene" uid="uid://dqrjdqvtcjsah" path="res://towers/CargoTower/cargo.tscn" id="5_7hfgv"]
+[ext_resource type="Texture2D" uid="uid://be4xu2h48nf02" path="res://towers/CargoTower/explosion.png" id="5_8yqhc"]
+[ext_resource type="AudioStream" uid="uid://cmxkpjgkxpf23" path="res://towers/CargoTower/Cargo.ogg" id="6_l0emq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fum28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rybau")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_on6yn"]
+radius = 151.727
+
+[sub_resource type="Animation" id="Animation_6rtkv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_qj3y2"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0349066, 0.0, 0.0349066, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-168, -249)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Cable:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Cable:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-168, -246)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Explosion:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_qa3r1"]
+resource_name = "work"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-168, -249), Vector2(-168, -45), Vector2(-168, -45), Vector2(-168, -249)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0349066, 0.0, 0.0349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Cable:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 22), Vector2(1, 22), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Cable:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-168, -246), Vector2(-168, -149), Vector2(-168, -149), Vector2(-168, -246)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Explosion:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sucly"]
+_data = {
+"RESET": SubResource("Animation_6rtkv"),
+"idle": SubResource("Animation_qj3y2"),
+"work": SubResource("Animation_qa3r1")
+}
+
+[node name="CargoTower" instance=ExtResource("1_8difa")]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("2_c8vc2")
+attack_power = 20
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-71, -145)
+sprite_frames = SubResource("SpriteFrames_fum28")
+animation = &"Idle"
+frame_progress = 0.556966
+
+[node name="Cable" type="Sprite2D" parent="." index="1"]
+position = Vector2(-168, -246)
+texture = ExtResource("3_jc8fu")
+
+[node name="CollisionShape2D" parent="DamageArea" index="0"]
+position = Vector2(-173, 40)
+rotation = 0.455531
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_on6yn")
+
+[node name="AttackTimer" parent="." index="5"]
+wait_time = 4.5
+
+[node name="DelayTimer" type="Timer" parent="." index="6"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+root_node = NodePath("../Cargo")
+libraries = {
+"": SubResource("AnimationLibrary_sucly")
+}
+blend_times = [&"work", &"idle", 2.0]
+
+[node name="Explosion" type="Sprite2D" parent="." index="8"]
+position = Vector2(-170.66, 64.5599)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_8yqhc")
+hframes = 10
+frame = 9
+
+[node name="CargoSFX" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = ExtResource("6_l0emq")
+bus = &"SFX"
+
+[node name="Cargo" parent="." index="10" instance=ExtResource("5_7hfgv")]
+z_index = 1
+position = Vector2(-168, -249)
+rotation = 0.00912784
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timer_timeout"]
+
+[editable path="Cargo"]

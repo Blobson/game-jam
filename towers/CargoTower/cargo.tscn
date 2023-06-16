@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqrjdqvtcjsah"]
+
+[ext_resource type="Texture2D" uid="uid://drtgn1nfropbx" path="res://towers/CargoTower/cargo.png" id="1_ikjku"]
+
+[node name="Cargo" type="Node2D"]
+position = Vector2(-1, -110)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 84)
+texture = ExtResource("1_ikjku")
