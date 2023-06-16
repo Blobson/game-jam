@@ -40,7 +40,10 @@ func die():
 	health = 0
 	var explosion = hut_explosion.instantiate()
 	explosion.position = global_position
+	Game.gameover.emit()
+	print_debug("Hut is dead, GAMEOVER")
 	NodeUtils.replace_node(self, explosion)
+	
 
 
 func jump_attack():

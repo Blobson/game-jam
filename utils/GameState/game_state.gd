@@ -2,6 +2,7 @@ extends Node
 
 signal gold_changed(from, to)
 signal hut_health_changed(from, to)
+signal gameover
 
 ## Номер текущего уровня
 var level_id: int = 1
