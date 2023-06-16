@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://do83oqdltgnxb" path="res://units/enemies/Snake/snake.png" id="2_8ejn2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o28u3"]
-height = 132.0
+radius = 27.0
+height = 108.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85uk2"]
 radius = 103.356
@@ -48,23 +49,28 @@ _data = {
 }
 
 [node name="Snake" instance=ExtResource("1_ib8ex")]
+light_mask = 2
+position = Vector2(0, 50)
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(23, 0)
+position = Vector2(25, -61)
 texture = ExtResource("2_8ejn2")
 hframes = 4
 vframes = 8
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-3, 58)
+position = Vector2(-2, -18)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o28u3")
 
 [node name="HealthBar" parent="." index="2"]
-offset_top = -93.0
-offset_bottom = -75.0
+offset_left = -26.0
+offset_top = -154.0
+offset_right = 42.0
+offset_bottom = -136.0
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(1, 4)
 shape = SubResource("CircleShape2D_85uk2")
 
 [node name="AnimationPlayer" parent="." index="6"]

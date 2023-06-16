@@ -33,34 +33,40 @@ texture = ExtResource("2_yxbi5")
 metadata/_edit_lock_ = true
 
 [node name="TopWay" type="Path2D" parent="."]
+y_sort_enabled = true
 curve = SubResource("Curve2D_ejcfy")
 script = ExtResource("2_cmdcf")
 width = 100
 
 [node name="MutantSpawn" type="Node2D" parent="TopWay"]
+y_sort_enabled = true
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_tsd4y")
 first_wave_time = 3.0
 
 [node name="ArcherSpawn" type="Node2D" parent="TopWay"]
+y_sort_enabled = true
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("7_jlmmf")
 enemy_count = 2
 first_wave_time = 10.0
 
 [node name="BottomWay" type="Path2D" parent="."]
+y_sort_enabled = true
 curve = SubResource("Curve2D_h2wft")
 script = ExtResource("2_cmdcf")
 width = 100
 metadata/_edit_lock_ = true
 
 [node name="MutantSpawn" type="Node2D" parent="BottomWay"]
+y_sort_enabled = true
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_tsd4y")
 enemy_count = 2
 first_wave_time = 1.0
 
 [node name="SnakeSpawn" type="Node2D" parent="BottomWay"]
+y_sort_enabled = true
 script = ExtResource("3_cupwo")
 enemy_type = ExtResource("6_x3r3s")
 first_wave_time = 3.0

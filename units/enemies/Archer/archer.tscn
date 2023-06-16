@@ -5,28 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://cec0a8gu7jcm8" path="res://icon.svg" id="3_leoc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mee00"]
-size = Vector2(76, 23)
+size = Vector2(76, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e48ad"]
 radius = 335.0
 
 [node name="Archer" instance=ExtResource("1_w2qqd")]
+light_mask = 2
+position = Vector2(1, 43)
 projectile_type = ExtResource("2_x37ut")
 move_speed = 120
 attackable_groups = Array[String](["hut"])
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -34)
+position = Vector2(0, -29)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_leoc4")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-9.53674e-07, -6.5)
+position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_mee00")
 
 [node name="HealthBar" parent="." index="2"]
-offset_top = -97.0
-offset_bottom = -79.0
+offset_top = -96.0
+offset_bottom = -78.0
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_e48ad")

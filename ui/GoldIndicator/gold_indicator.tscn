@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://kofboynccnmr" path="res://ui/GoldIndicator/gold_gear.png" id="2_a76o4"]
 
 [sub_resource type="FontFile" id="FontFile_hcrp4"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 face_index = null
 embolden = null
 transform = null
